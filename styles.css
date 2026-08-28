@@ -338,6 +338,27 @@ a { color: inherit; text-decoration: none; }
 }
 .split__card p { font-size: 15px; color: var(--ink-soft); }
 
+/* Shared plain-section text + small note (audience / diy / support sections) */
+.section__text { font-size: 16px; color: var(--ink); }
+.section__text + .section__text { margin-top: 16px; }
+
+.note {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* Includes accent note */
+.includes__note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--yellow);
+  background: var(--bg-soft);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
 /* System intro + gallery */
 .system__intro { font-size: 15.5px; color: var(--ink-soft); margin: 0 0 14px; }
 .system__intro:last-of-type { margin-bottom: 26px; }
@@ -518,9 +539,8 @@ a { color: inherit; text-decoration: none; }
   left: 0; right: 0; bottom: 0;
   z-index: 50;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: stretch;
+  gap: 10px;
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   background: #fff;
   border-top: 2px solid var(--ink);
@@ -528,9 +548,12 @@ a { color: inherit; text-decoration: none; }
   transition: transform .3s ease;
 }
 .sticky-cta.is-visible { transform: translateY(0); }
-.sticky-cta__price { display: flex; flex-direction: column; line-height: 1.15; }
-.sticky-cta__price b { font-family: "Unbounded", sans-serif; font-weight: 800; font-size: 17px; }
-.sticky-cta__price span { font-size: 11px; color: var(--ink-soft); }
+.sticky-cta .btn {
+  flex: 1;
+  white-space: nowrap;
+  padding: 12px 8px;
+  font-size: 12.5px;
+}
 
 /* ---------- Reveal animation ---------- */
 .reveal {
