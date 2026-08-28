@@ -1,341 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Старт продажів за 3 дні — CRMCUSTOMS</title>
-<meta name="description" content="Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі + форма заявки, яка не губиться. 6 900 ₴, готово за 3 дні.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#1a1a1a;
-    --bg:#f5f2ec;
-    --accent:#e8b84b;
-    --accent-dark:#c49a2e;
-    --muted:#6b6456;
-    --card:#ffffff;
-    --border:#e0dbd0;
-    --red:#d64c3f;
-    --radius:14px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Golos Text",sans-serif;
-    font-size:18px;
-    line-height:1.6;
-  }
-  h1,h2,h3,.brand{
-    font-family:"Unbounded",sans-serif;
-    letter-spacing:-0.01em;
-  }
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
-  a{color:inherit;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>CRMCUSTOMS — Продажі за 3 дні. Без бюджету на софт.</title>
+  <meta name="description" content="Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі + форма заявки, яка не губиться. Запуск продажів з нуля за 3 дні. 6 900 ₴." />
 
-  /* Header */
-  header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:22px 0;
-  }
-  .brand{font-size:16px;font-weight:900;letter-spacing:0.02em;}
-  .brand span{color:var(--accent-dark);}
-  .header-cta{
-    display:inline-block;background:var(--ink);color:#fff;
-    font-family:"Unbounded",sans-serif;font-size:13px;font-weight:700;
-    padding:10px 18px;border-radius:999px;text-decoration:none;
-    white-space:nowrap;
-  }
+  <meta property="og:title" content="Продажі — за 3 дні. Без бюджету на софт." />
+  <meta property="og:description" content="Ця сторінка зроблена саме так, як ми продаємо — тож ви вже дивитесь на результат." />
+  <meta property="og:type" content="website" />
 
-  /* Hero */
-  .hero{
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;
-    align-items:center;padding:36px 0 56px;
-  }
-  .tag{
-    display:inline-block;background:var(--accent);color:var(--ink);
-    font-family:"Unbounded",sans-serif;font-size:11px;font-weight:700;
-    letter-spacing:0.12em;text-transform:uppercase;
-    padding:7px 14px;border-radius:2px;margin-bottom:22px;
-  }
-  .hero h1{
-    font-size:clamp(30px,4.6vw,46px);
-    font-weight:900;line-height:1.14;margin:0 0 18px;
-  }
-  .hero h1 .accent{color:var(--accent-dark);}
-  .hero p.lead{
-    font-size:19px;color:var(--muted);margin:0 0 28px;max-width:46ch;
-  }
-  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
-  .btn-primary{
-    display:inline-block;background:var(--ink);color:#fff;
-    font-family:"Unbounded",sans-serif;font-size:14px;font-weight:700;
-    padding:16px 26px;border-radius:999px;text-decoration:none;
-  }
-  .btn-primary:hover{background:var(--accent-dark);}
-  .price-note{font-size:14px;color:var(--muted);font-weight:600;}
-  .hero-art{display:flex;justify-content:center;align-items:flex-end;}
-  .hero-art img{max-width:340px;width:100%;filter:drop-shadow(0 18px 30px rgba(26,26,26,.14));}
-
-  /* Sections */
-  section{padding:52px 0;border-top:2px solid var(--border);}
-  .kicker{
-    font-family:"Unbounded",sans-serif;font-size:11px;font-weight:700;
-    letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);
-    margin-bottom:14px;
-  }
-  h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;line-height:1.2;margin:0 0 18px;}
-  p{margin:0 0 18px;color:var(--ink);}
-  .muted{color:var(--muted);}
-
-  /* Planfix scale block */
-  .scale-card{
-    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-    padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;
-  }
-  .scale-card .col h3{font-size:16px;margin:0 0 8px;font-family:"Unbounded",sans-serif;font-weight:700;}
-  .scale-card .col p{font-size:16px;color:var(--muted);margin:0;}
-
-  /* Case */
-  .case-card{
-    background:var(--ink);color:#fff;border-radius:var(--radius);padding:36px;
-  }
-  .case-card .kicker{color:var(--accent);}
-  .case-card h2{color:#fff;}
-  .case-card p{color:#d9d5cc;}
-  .case-stats{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;
-  }
-  .case-stats .stat{border-top:2px solid rgba(255,255,255,.16);padding-top:14px;}
-  .case-stats .stat b{
-    display:block;font-family:"Unbounded",sans-serif;font-size:22px;font-weight:800;color:var(--accent);
-  }
-  .case-stats .stat span{font-size:14px;color:#c9c5bb;}
-
-  /* Included */
-  .included-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;list-style:none;padding:0;margin:0;}
-  .included-list li{
-    background:var(--card);border:1px solid var(--border);border-radius:12px;
-    padding:18px 20px;font-size:16px;display:flex;gap:12px;align-items:flex-start;
-  }
-  .included-list li .mark{color:var(--accent-dark);font-weight:800;}
-
-  /* Price */
-  .price-block{
-    background:var(--card);border:2px solid var(--accent);border-radius:var(--radius);
-    padding:40px;text-align:center;
-  }
-  .price-block .old{font-size:16px;color:var(--muted);text-decoration:line-through;}
-  .price-block .big{
-    font-family:"Unbounded",sans-serif;font-weight:900;font-size:clamp(36px,6vw,56px);
-    margin:6px 0 10px;
-  }
-  .price-block .first-five{
-    display:inline-block;background:var(--accent);color:var(--ink);
-    font-family:"Unbounded",sans-serif;font-weight:700;font-size:13px;
-    padding:8px 16px;border-radius:999px;margin-bottom:18px;
-  }
-
-  /* Form */
-  .form-card{
-    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-    padding:36px;
-  }
-  .form-card input,.form-card textarea{
-    width:100%;font-family:"Golos Text",sans-serif;font-size:16px;
-    padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;
-    margin-bottom:14px;background:#fff;color:var(--ink);
-  }
-  .form-card label{font-size:13px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;}
-  .form-card button{
-    width:100%;background:var(--ink);color:#fff;border:none;cursor:pointer;
-    font-family:"Unbounded",sans-serif;font-weight:700;font-size:15px;
-    padding:17px;border-radius:999px;
-  }
-  .form-card button:hover{background:var(--accent-dark);}
-  .form-note{font-size:13px;color:var(--muted);margin-top:12px;text-align:center;}
-  #form-status{font-size:14px;font-weight:600;margin-top:14px;text-align:center;}
-
-  /* Footer */
-  footer{padding:36px 0 60px;border-top:2px solid var(--border);}
-  footer .brand{margin-bottom:10px;}
-  footer .contacts{font-size:14px;color:var(--muted);line-height:1.9;}
-  footer .fop{font-size:12px;color:var(--muted);margin-top:18px;}
-
-  @media (max-width:760px){
-    .hero{grid-template-columns:1fr;}
-    .hero-art{order:-1;}
-    .hero-art img{max-width:220px;}
-    .scale-card{grid-template-columns:1fr;}
-    .included-list{grid-template-columns:1fr;}
-    .case-stats{grid-template-columns:1fr;}
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-<div class="wrap">
-  <header>
-    <div class="brand">CRM<span>CUSTOMS</span></div>
-    <a href="#form" class="header-cta">Залишити заявку</a>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="top">
+    <a href="#top" class="wordmark" aria-label="CRMCUSTOMS">
+      <span class="wm-crm">CRM</span><span class="wm-customs">CUSTOMS</span>
+    </a>
+    <a href="#form" class="btn btn--sm" data-scroll>Залишити заявку</a>
   </header>
-</div>
 
-<div class="wrap">
-  <section class="hero" style="border-top:none;padding-top:8px;">
-    <div>
-      <span class="tag">Старт продажів з нуля</span>
-      <h1>Продажі — за 3 дні. <span class="accent">Без бюджету на софт.</span></h1>
-      <p class="lead">Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі + форма заявки, яка не губиться. Ця сторінка зроблена саме так, як ми продаємо — тож ви вже дивитесь на результат.</p>
-      <div class="cta-row">
-        <a href="#form" class="btn-primary">Хочу так само</a>
-        <span class="price-note">6 900 ₴ · перші 5 клієнтів — 4 900 ₴</span>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <span class="kicker reveal">
+        <span class="kicker__dot"></span> Старт продажів з нуля
+      </span>
+
+      <h1 class="hero__title reveal" data-delay="1">
+        Продажі — <span class="hl">за 3 дні.</span><br />
+        Без бюджету на софт.
+      </h1>
+
+      <div class="hero__stage reveal" data-delay="2">
+        <div class="hero__plate" aria-hidden="true"></div>
+        <img src="./professor.webp" alt="Спеціаліст CRMCUSTOMS" class="hero__mascot" width="435" height="574" fetchpriority="high" />
+        <div class="hero__badge hero__badge--tl">Planfix · 0 ₴</div>
+        <div class="hero__badge hero__badge--br">GitHub Pages</div>
+      </div>
+
+      <p class="hero__sub reveal" data-delay="3">
+        Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі +
+        форма заявки, яка не губиться. Ця сторінка зроблена саме так, як ми
+        продаємо — тож ви вже дивитесь на результат.
+      </p>
+
+      <div class="hero__cta reveal" data-delay="4">
+        <a href="#form" class="btn btn--index" data-index="01" data-scroll>Хочу так само</a>
+        <div class="price-inline">
+          <span class="price-inline__now">6 900 ₴</span>
+          <span class="price-inline__note">перші 5 клієнтів — <b>4 900 ₴</b></span>
+        </div>
       </div>
     </div>
-    <div class="hero-art">
-      <img src="assets/doctor.png" alt="CRMCUSTOMS">
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Лендинг за 3 дні</span><span class="marquee__sep">·</span>
+        <span>0 ₴ на софт</span><span class="marquee__sep">·</span>
+        <span>Форма → Planfix</span><span class="marquee__sep">·</span>
+        <span>Жодної загубленої заявки</span><span class="marquee__sep">·</span>
+        <span>Лендинг за 3 дні</span><span class="marquee__sep">·</span>
+        <span>0 ₴ на софт</span><span class="marquee__sep">·</span>
+        <span>Форма → Planfix</span><span class="marquee__sep">·</span>
+        <span>Жодної загубленої заявки</span><span class="marquee__sep">·</span>
+      </div>
     </div>
   </section>
-</div>
 
-<div class="wrap">
-  <section id="scale">
-    <div class="kicker">Про систему</div>
-    <h2>Це не іграшкова CRM</h2>
-    <div class="scale-card">
-      <div class="col">
+  <!-- ================= НЕ ІГРАШКОВА CRM ================= -->
+  <section class="section" id="system">
+    <span class="kicker kicker--dark reveal">Про систему</span>
+    <h2 class="section__title reveal" data-delay="1">Це не іграшкова CRM</h2>
+
+    <div class="split">
+      <article class="split__card reveal" data-delay="2">
+        <span class="split__no">01</span>
         <h3>Та сама система, що тримає повний відділ продажів</h3>
-        <p>Planfix, який ви отримуєте на безкоштовному тарифі — та сама архітектура, на якій у нас працюють клієнти з повною автоматизацією одного відділу продажів і клієнти з кількома відділами й складними інтеграціями. Ви стартуєте знизу, не на іншій системі.</p>
-      </div>
-      <div class="col">
+        <p>
+          Planfix, який ви отримуєте на безкоштовному тарифі — та сама
+          архітектура, на якій у нас працюють клієнти з повною автоматизацією
+          одного відділу продажів і клієнти з кількома відділами й складними
+          інтеграціями. Ви стартуєте знизу, не на іншій системі.
+        </p>
+      </article>
+
+      <article class="split__card reveal" data-delay="3">
+        <span class="split__no">02</span>
         <h3>Росте разом із бізнесом</h3>
-        <p>Один Planfix-акаунт масштабується хоч до кількох відділень в одному бізнесі, хоч до кількох окремих бізнесів. Коли виростете з безкоштовного тарифу — переїзду на іншу CRM не буде, просто розширюється те, що вже налаштовано.</p>
+        <p>
+          Один Planfix-акаунт масштабується хоч до кількох відділень в одному
+          бізнесі, хоч до кількох окремих бізнесів. Коли виростете з
+          безкоштовного тарифу — переїзду на іншу CRM не буде, просто
+          розширюється те, що вже налаштовано.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= РЕАЛЬНИЙ КЕЙС ================= -->
+  <section class="section section--case" id="case">
+    <span class="kicker reveal">Реальний кейс</span>
+    <h2 class="section__title reveal" data-delay="1">Швидкий запуск продажів із мінімальним бюджетом</h2>
+
+    <p class="case__text reveal" data-delay="2">
+      Продукт — книга. Потрібно було почати продавати онлайн швидко і без
+      бюджету, не загубити жодної заявки й лишити можливість вирости в
+      повноцінну систему пізніше. Зібрали мінімально необхідну модель: лендинг
+      на GitHub Pages, Planfix на безкоштовному тарифі (до 1000 клієнтів),
+      проста система обліку без зайвих полів.
+    </p>
+
+    <p class="case__pull reveal" data-delay="3">«Спочатку — результат, потім — нарощування.»</p>
+
+    <div class="stats reveal" data-delay="4">
+      <div class="stat">
+        <span class="stat__num" data-count="3" data-suffix=" дні">0</span>
+        <span class="stat__label">від старту до запуску</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-count="0">0</span>
+        <span class="stat__label">загублених заявок</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-count="0" data-suffix=" ₴">0</span>
+        <span class="stat__label">витрат на софт</span>
       </div>
     </div>
   </section>
-</div>
 
-<div class="wrap">
-  <section id="case">
-    <div class="case-card">
-      <div class="kicker">Реальний кейс</div>
-      <h2>Швидкий запуск продажів із мінімальним бюджетом</h2>
-      <p>Продукт — книга. Потрібно було почати продавати онлайн швидко і без бюджету, не загубити жодної заявки і лишити можливість розгорнути це у повноцінну систему пізніше, коли проєкт виросте.</p>
-      <p>Зібрали мінімально необхідну модель: лендинг на GitHub із безкоштовним хостингом, збір заявок через Planfix на безкоштовному тарифі (до 1000 клієнтів), проста система обліку без зайвих полів і статусів. Спочатку — результат, потім — нарощування.</p>
-      <div class="case-stats">
-        <div class="stat"><b>3 дні</b><span>від старту до запуску продажів</span></div>
-        <div class="stat"><b>0</b><span>загублених заявок</span></div>
-        <div class="stat"><b>0 ₴</b><span>витрат на софт</span></div>
-      </div>
-    </div>
-  </section>
-</div>
+  <!-- ================= ЩО ВХОДИТЬ ================= -->
+  <section class="section" id="includes">
+    <span class="kicker kicker--dark reveal">Комплект</span>
+    <h2 class="section__title reveal" data-delay="1">Що входить</h2>
 
-<div class="wrap">
-  <section id="included">
-    <div class="kicker">Що входить</div>
-    <h2>Рівно те, що потрібно на старті</h2>
-    <ul class="included-list">
-      <li><span class="mark">—</span> Лендинг на безкоштовному хостингу (GitHub Pages)</li>
-      <li><span class="mark">—</span> Planfix на безкоштовному тарифі (до 1000 клієнтів)</li>
-      <li><span class="mark">—</span> Форма заявки → картка клієнта і картка угоди</li>
-      <li><span class="mark">—</span> Базова воронка продажів</li>
+    <ul class="includes">
+      <li class="includes__item reveal" data-delay="2">
+        <span class="includes__no">01</span>
+        <div>
+          <h3>Лендинг на безкоштовному хостингу</h3>
+          <p>GitHub Pages — статична сторінка без щомісячної плати за хостинг.</p>
+        </div>
+      </li>
+      <li class="includes__item reveal" data-delay="2">
+        <span class="includes__no">02</span>
+        <div>
+          <h3>Planfix на безкоштовному тарифі</h3>
+          <p>Повноцінна CRM-архітектура, до 1000 клієнтів — 0 ₴.</p>
+        </div>
+      </li>
+      <li class="includes__item reveal" data-delay="3">
+        <span class="includes__no">03</span>
+        <div>
+          <h3>Форма заявки → картка клієнта і угоди</h3>
+          <p>Заявка з сайту одразу перетворюється на робочі картки в системі.</p>
+        </div>
+      </li>
+      <li class="includes__item reveal" data-delay="3">
+        <span class="includes__no">04</span>
+        <div>
+          <h3>Базова воронка продажів</h3>
+          <p>Готові етапи, щоб бачити кожну угоду й не втрачати клієнтів.</p>
+        </div>
+      </li>
     </ul>
   </section>
-</div>
 
-<div class="wrap">
-  <section id="price">
-    <div class="kicker">Ціна</div>
-    <h2 style="text-align:center;">Одна ціна. Без прихованих пакетів</h2>
-    <div class="price-block">
-      <span class="first-five">Для перших 5 клієнтів — 4 900 ₴</span>
-      <div class="big">6 900 ₴</div>
-      <p class="muted" style="margin:0;">Разова оплата. Готово за 3 дні з моменту старту.</p>
+  <!-- ================= ЦІНА ================= -->
+  <section class="section section--price" id="price">
+    <div class="price-card reveal">
+      <span class="price-card__badge">Для перших 5 клієнтів — 4 900 ₴</span>
+      <div class="price-card__big">6 900 <span>₴</span></div>
+      <p class="price-card__note">Разова оплата. Готово за 3 дні з моменту старту.</p>
+      <a href="#form" class="btn btn--index btn--light" data-index="02" data-scroll>Хочу так само</a>
     </div>
   </section>
-</div>
 
-<div class="wrap">
-  <section id="form">
-    <div class="kicker">Заявка</div>
-    <h2>Запустимо ваші продажі за 3 дні</h2>
-    <div class="form-card">
-      <form id="lead-form">
-        <label for="name">Ім'я</label>
-        <input type="text" id="name" name="name" required placeholder="Як до вас звертатись">
-        <label for="phone">Телефон або Telegram</label>
-        <input type="text" id="phone" name="phone" required placeholder="+380... або @nickname">
-        <label for="comment">Коротко про бізнес (необов'язково)</label>
-        <textarea id="comment" name="comment" rows="3" placeholder="Що продаєте, звідки зараз приходять заявки"></textarea>
-        <button type="submit">Залишити заявку</button>
-      </form>
-      <p class="form-note">Заявка одразу потрапляє в Planfix — ту саму систему, яку ви отримуєте.</p>
-      <div id="form-status"></div>
-    </div>
+  <!-- ================= ФОРМА ================= -->
+  <section class="section section--form" id="form">
+    <span class="kicker reveal">Заявка</span>
+    <h2 class="section__title reveal" data-delay="1">Залишити заявку</h2>
+
+    <form class="form reveal" data-delay="2" id="lead-form" novalidate>
+      <label class="field">
+        <span class="field__label">Ім'я</span>
+        <input type="text" name="name" required autocomplete="name" placeholder="Як до вас звертатись" />
+      </label>
+
+      <label class="field">
+        <span class="field__label">Телефон або Telegram</span>
+        <input type="text" name="phone" required autocomplete="tel" placeholder="+380… або @username" />
+      </label>
+
+      <label class="field">
+        <span class="field__label">Коротко про бізнес <em>(необов'язково)</em></span>
+        <textarea name="comment" rows="3" placeholder="Що продаєте і на якому етапі"></textarea>
+      </label>
+
+      <button type="submit" class="btn btn--index btn--full" data-index="03">Залишити заявку</button>
+
+      <p class="form__note">
+        Заявка одразу потрапляє в Planfix — ту саму систему, яку ви отримуєте.
+      </p>
+
+      <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
   </section>
-</div>
 
-<div class="wrap">
-  <footer>
-    <div class="brand">CRM<span style="color:var(--accent-dark);">CUSTOMS</span></div>
-    <div class="contacts">
-      Telegram: <a href="https://t.me/crmcustomsua" target="_blank">@crmcustomsua</a><br>
-      Email: <a href="mailto:tm@crmcustoms.com">tm@crmcustoms.com</a><br>
-      Телефон: <a href="tel:+380931198927">+38 (093) 119-89-27</a>
-    </div>
-    <div class="fop">ФОП Ткаченко Максим Вікторович</div>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <a href="#top" class="wordmark wordmark--footer" aria-label="CRMCUSTOMS">
+      <span class="wm-crm">CRM</span><span class="wm-customs">CUSTOMS</span>
+    </a>
+    <ul class="footer__contacts">
+      <li><a href="https://t.me/crmcustomsua" target="_blank" rel="noopener">Telegram · @crmcustomsua</a></li>
+      <li><a href="mailto:tm@crmcustoms.com">tm@crmcustoms.com</a></li>
+      <li><a href="tel:+380931198927">+38 (093) 119-89-27</a></li>
+    </ul>
+    <p class="footer__legal">ФОП Ткаченко Максим Вікторович</p>
   </footer>
-</div>
 
-<script>
-  // TODO(власник): вставити URL вхідного вебхука Planfix (Налаштування → Інтеграції → Вхідні вебхуки).
-  // Мапінг очікується: name, phone, comment, source — на кореневому рівні JSON-тіла,
-  // за тим самим патерном, що вже працює на Kazkaua (wiki/projects-active.md).
-  const PLANFIX_WEBHOOK_URL = "";
+  <!-- ================= STICKY MOBILE CTA ================= -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="sticky-cta__price">
+      <b>6 900 ₴</b>
+      <span>перші 5 — 4 900 ₴</span>
+    </div>
+    <a href="#form" class="btn btn--sm btn--yellow" data-scroll>Хочу так само</a>
+  </div>
 
-  const form = document.getElementById("lead-form");
-  const status = document.getElementById("form-status");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    if (!PLANFIX_WEBHOOK_URL) {
-      status.style.color = "var(--red)";
-      status.textContent = "Форму ще не підключено до Planfix — зверніться напряму через Telegram чи email нижче.";
-      return;
-    }
-
-    const payload = {
-      name: document.getElementById("name").value,
-      phone: document.getElementById("phone").value,
-      comment: document.getElementById("comment").value,
-      source: "landing-start-3-days"
-    };
-
-    status.style.color = "var(--muted)";
-    status.textContent = "Надсилаємо...";
-
-    try {
-      const res = await fetch(PLANFIX_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error("bad status " + res.status);
-      status.style.color = "var(--accent-dark)";
-      status.textContent = "Дякуємо! Ми зв'яжемось найближчим часом.";
-      form.reset();
-    } catch (err) {
-      status.style.color = "var(--red)";
-      status.textContent = "Не вдалось надіслати. Напишіть напряму в Telegram — @crmcustomsua.";
-    }
-  });
-</script>
-
+  <script src="./script.js"></script>
 </body>
 </html>

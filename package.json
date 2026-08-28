@@ -1,0 +1,12 @@
+{
+  "name": "start-3-days",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve --listen tcp://0.0.0.0:3000 .",
+    "start": "serve --listen tcp://0.0.0.0:3000 ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
