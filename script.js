@@ -177,6 +177,7 @@
         form.reset();
         if (submitBtn) submitBtn.disabled = false;
         setStatus("Готово! Заявка вже в Planfix — скоро зв'яжемось.", "ok");
+        if (typeof fbq === "function") fbq("track", "Lead");
       }
     });
   }
