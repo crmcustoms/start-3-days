@@ -267,6 +267,12 @@ a { color: inherit; text-decoration: none; }
 }
 .price-inline__note { font-size: 13px; color: var(--ink-soft); }
 .price-inline__note b { color: var(--ink); }
+.price-inline__sub {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
 
 /* Marquee */
 .marquee {
@@ -368,7 +374,11 @@ a { color: inherit; text-decoration: none; }
 .stat:nth-child(1) .stat__num { color: var(--ink); }
 .stat__label { font-size: 13.5px; color: var(--ink-soft); }
 
+/* Risk */
+.risk__text { font-size: 16px; color: var(--ink); }
+
 /* Includes */
+.includes__intro { font-size: 15px; color: var(--ink-soft); margin: 14px 0 22px; }
 .includes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .includes__item {
   display: flex;
