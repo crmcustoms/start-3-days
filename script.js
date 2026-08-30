@@ -111,6 +111,22 @@
     statusEl.className = "form__status" + (kind ? " is-" + kind : "");
   }
 
+  // Meta dedup id: shared between the browser Lead pixel event and the
+  // CRM-side Lead record, so a later server-side CAPI event for the same
+  // submission (fired from Planfix on stage change) can be deduped against
+  // this one instead of double-counting.
+  function makeEventId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "ev-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+  }
+
+  function getCookie(name) {
+    var match = document.cookie.match(
+      new RegExp("(?:^|; )" + name + "=([^;]*)")
+    );
+    return match ? decodeURIComponent(match[1]) : "";
+  }
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -125,6 +141,14 @@
         return;
       }
 
+      var eventId = makeEventId();
+      // _fbp/_fbc are the Meta pixel's own match-quality cookies. Forwarding
+      // them to Planfix now means a later Conversions API event (fired from
+      // Planfix when the deal is qualified/paid) can still be attributed to
+      // the right ad, even though that event happens outside the browser.
+      var fbp = getCookie("_fbp");
+      var fbc = getCookie("_fbc");
+
       var payload = {
         body: {
           subject: "Лід [start-3-days] — " + name,
@@ -135,6 +159,12 @@
         description:
           "Заявка з лендингу «Старт за 3 дні»: " +
           (comment || "без коментаря"),
+        meta: {
+          event_id: eventId,
+          fbp: fbp,
+          fbc: fbc,
+          source_url: window.location.href,
+        },
       };
 
       var submitBtn = form.querySelector('button[type="submit"]');
@@ -177,7 +207,9 @@
         form.reset();
         if (submitBtn) submitBtn.disabled = false;
         setStatus("Готово! Заявка вже в Planfix — скоро зв'яжемось.", "ok");
-        if (typeof fbq === "function") fbq("track", "Lead");
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {}, { eventID: eventId });
+        }
       }
     });
   }
