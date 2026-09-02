@@ -40,21 +40,41 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="./professor.webp" fetchpriority="high" />
+  <!-- Non-blocking Google Fonts load: fetched at low priority, swapped in on load -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="./styles.css" />
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code: queue set up immediately (cheap), but the actual
+       fbevents.js fetch/execution is deferred to idle time or first user
+       interaction so it doesn't compete with the critical render path. -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  n.queue=[];
+  f.__loadFbPixelScript=function(){
+    if(f.__fbPixelScriptLoaded)return;f.__fbPixelScriptLoaded=!0;
+    t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+  };
+  }(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1759762755365587');
   fbq('track', 'PageView');
+
+  (function () {
+    var fired = false;
+    function loadPixel() { if (fired) return; fired = true; window.__loadFbPixelScript(); }
+    ['pointerdown', 'mousemove', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
+      window.addEventListener(evt, loadPixel, { once: true, passive: true });
+    });
+    if ('requestIdleCallback' in window) requestIdleCallback(loadPixel, { timeout: 4000 });
+    else setTimeout(loadPixel, 3000);
+  })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1759762755365587&ev=PageView&noscript=1"
@@ -71,6 +91,7 @@
     <a href="#form" class="btn btn--sm" data-scroll>Залишити заявку</a>
   </header>
 
+  <main>
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="hero__grid" aria-hidden="true"></div>
@@ -441,9 +462,9 @@
     </p>
 
     <div class="pfx-gallery reveal" data-delay="2">
-      <img src="./public/planfix/planfix-1.png" alt="Інтерфейс Planfix — планувальник задач" loading="lazy" />
-      <img src="./public/planfix/planfix-2.png" alt="Інтерфейс Planfix — розклад і бронювання" loading="lazy" />
-      <img src="./public/planfix/planfix-3.png" alt="Інтерфейс Planfix — канбан-дошка задач" loading="lazy" />
+      <img src="./public/planfix/planfix-1.webp" alt="Інтерфейс Planfix — планувальник задач" width="910" height="780" loading="lazy" decoding="async" />
+      <img src="./public/planfix/planfix-2.webp" alt="Інтерфейс Planfix — розклад і бронювання" width="910" height="780" loading="lazy" decoding="async" />
+      <img src="./public/planfix/planfix-3.webp" alt="Інтерфейс Planfix — канбан-дошка задач" width="910" height="780" loading="lazy" decoding="async" />
     </div>
     <p class="pfx-gallery__caption">Так виглядає робочий інтерфейс Planfix — не спрощена демо-версія.</p>
 
@@ -606,6 +627,7 @@
       <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </section>
+  </main>
 
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">

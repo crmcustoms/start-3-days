@@ -11,6 +11,7 @@
   --ink: #111111;
   --ink-soft: #6b6b6b;
   --yellow: #ffd700;
+  --yellow-text: #8a6800; /* darkened for text use: --yellow fails contrast on white (~1.1:1) */
   --line: #e6e6e0;
   --radius: 0px; /* technical minimalism = square */
   --pad: 20px;
@@ -58,7 +59,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.03em;
   display: inline-flex;
 }
-.wm-crm { color: var(--yellow); text-shadow: 0 0 1px rgba(0,0,0,.35); }
+.wm-crm { color: var(--yellow-text); }
 .wm-customs { color: var(--ink); }
 
 /* ---------- Buttons ---------- */
