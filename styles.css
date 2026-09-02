@@ -423,6 +423,37 @@ a { color: inherit; text-decoration: none; }
 .stat:nth-child(1) .stat__num { color: var(--ink); }
 .stat__label { font-size: 13.5px; color: var(--ink-soft); }
 
+/* Trust row (experience strip) */
+.section--trust { padding-top: 8px; padding-bottom: 8px; }
+.trust-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+.trust-item { text-align: center; }
+.trust-item__num {
+  display: block;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.trust-item__label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+@media (min-width: 760px) {
+  .trust-row { grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  .trust-item { border-right: 1px solid var(--line); }
+  .trust-item:last-child { border-right: none; }
+}
+
 /* Risk */
 .risk__text { font-size: 16px; color: var(--ink); }
 
