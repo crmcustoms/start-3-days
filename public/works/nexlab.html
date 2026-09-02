@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexLab — Аналітика для зростання</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0f1a;--card:#111827;--accent:#6366f1;--accent2:#8b5cf6;--text:#e5e7eb;--muted:#9ca3af;--line:#1f2937}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+  .bg-grad{position:fixed;inset:0;background:radial-gradient(circle at 20% 0%,rgba(99,102,241,.2),transparent 45%),radial-gradient(circle at 80% 20%,rgba(139,92,246,.15),transparent 40%);pointer-events:none;z-index:0}
+  .wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:24px}
+  .logo span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  nav{display:flex;gap:28px;font-size:14px}
+  nav a{color:var(--muted);text-decoration:none;transition:.2s}
+  nav a:hover{color:var(--text)}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:600;font-size:14px;padding:12px 26px;border-radius:8px;text-decoration:none;transition:.2s}
+  .btn:hover{filter:brightness(1.1)}
+  .btn--ghost{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--text)}
+  .btn--ghost:hover{border-color:var(--accent)}
+  .hero{display:grid;grid-template-columns:1fr .95fr;gap:60px;align-items:center;padding:90px 0 70px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);color:var(--accent);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+  h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(40px,5.5vw,64px);line-height:1.08;letter-spacing:-.02em;margin-bottom:24px}
+  h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:var(--muted);font-size:17px;line-height:1.7;max-width:450px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px}
+  .hero-note{margin-top:18px;font-size:13px;color:var(--muted)}
+  .mock{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .mock-bar{display:flex;gap:6px;margin-bottom:16px;align-items:center}
+  .mock-bar i{width:10px;height:10px;border-radius:50%;background:#374151}
+  .mock-bar i:nth-child(1){background:#f87171}.mock-bar i:nth-child(2){background:#fbbf24}
+  .mock-chart{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+  .chart{height:120px;display:flex;align-items:flex-end;gap:4px;background:rgba(255,255,255,.02);border-radius:8px;padding:12px}
+  .chart i{flex:1;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px 3px 0 0;opacity:.85}
+  .mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .mstat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
+  .mstat b{display:block;font-family:'Space Grotesk';font-size:20px}
+  .mstat span{font-size:11px;color:var(--muted)}
+  .logos{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;padding:50px 0;border-top:1px solid var(--line);opacity:.6}
+  .logos span{font-family:'Space Grotesk';font-size:16px;color:var(--muted);letter-spacing:.1em}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:40px 0 90px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;transition:.3s}
+  .feat:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .feat .ic{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(139,92,246,.2));display:grid;place-items:center;font-size:20px;margin-bottom:18px}
+  .feat h3{font-family:'Space Grotesk';font-size:19px;font-weight:600;margin-bottom:10px}
+  .feat p{color:var(--muted);font-size:14px;line-height:1.6}
+  .testimonial{max-width:720px;margin:0 auto 90px;text-align:center}
+  .t-glow{font-size:48px;margin-bottom:18px}
+  .testimonial blockquote{font-size:22px;line-height:1.5;color:var(--text);margin-bottom:24px;font-family:'Space Grotesk'}
+  .t-author{color:var(--muted);font-size:14px}
+  footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+  @media(max-width:840px){.hero{grid-template-columns:1fr;gap:40px}.features{grid-template-columns:1fr}.mock{width:100%}nav{display:none}}
+</style>
+</head>
+<body>
+<div class="bg-grad"></div>
+<div class="wrap">
+  <header>
+    <div class="logo">Nex<span>Lab</span></div>
+    <nav><a>Можливості</a><a>Ціни</a><a>Блог</a><a>Вхід</a></nav>
+    <a href="#" class="btn">Спробувати безкоштовно</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">⚡ Новий реліз v2.0</div>
+      <h1>Аналітика,<br>що <span>приймає рішення</span><br>за вас</h1>
+      <p>NexLab збирає дані з усіх каналів в один дашборд і показує, що відбувається з вашим бізнесом у реальному часі.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn">Розпочати безкоштовно</a>
+        <a href="#" class="btn btn--ghost">Переглянути демо</a>
+      </div>
+      <p class="hero-note">✓ 14 днів безкоштовно · ✓ Без картки · ✓ Налаштування за 5 хв</p>
+    </div>
+    <div class="mock">
+      <div class="mock-bar"><i></i><i></i><i></i></div>
+      <div class="mock-chart">
+        <div class="chart"><i style="height:60%"></i><i style="height:75%"></i><i style="height:58%"></i><i style="height:85%"></i><i style="height:68%"></i></div>
+        <div class="chart"><i style="height:40%;background:linear-gradient(180deg,#f87171,#fb7185)"></i><i style="height:52%"></i><i style="height:45%;background:linear-gradient(180deg,#f87171,#fb7185)"></i><i style="height:62%"></i><i style="height:55%"></i></div>
+      </div>
+      <div class="mock-stats">
+        <div class="mstat"><b>+38%</b><span>конверсія</span></div>
+        <div class="mstat"><b>2.4x</b><span>окупаємість</span></div>
+        <div class="mstat"><b>-15%</b><span>витрати</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="logos"><span>ACME</span><span>NORTHWIND</span><span>GLOBEX</span><span>INITECH</span><span>ZETA</span></div>
+
+  <section class="features">
+    <div class="feat"><div class="ic">📊</div><h3>Єдина аналітика</h3><p>Підключайте рекламу, CRM, оплати — все зведено в один дашборд.</p></div>
+    <div class="feat"><div class="ic">🤖</div><h3>AI-інсайти</h3><p>Модель сама помічає аномалії та підказує, куди направити бюджет.</p></div>
+    <div class="feat"><div class="ic">🔔</div><h3>Автозвіти</h3><p>Щоранку звіт у Telegram без жодної ручної роботи.</p></div>
+  </section>
+
+  <div class="testimonial">
+    <div class="t-glow">💬</div>
+    <blockquote>"За 2 місяці окупність реклами виросла з 1.1x до 2.4x — бо перестали гріти рекламою нецільових людей."</blockquote>
+    <div class="t-author">Максим Ткаченко · засновник</div>
+  </div>
+
+  <footer>
+    <span>© NexLab · Аналітика для зростання</span><span>Підтримка · Документація · API</span>
+  </footer>
+</div>
+</body>
+</html>
