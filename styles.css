@@ -387,24 +387,6 @@ a { color: inherit; text-decoration: none; }
   margin-top: 10px;
 }
 
-/* Works gallery */
-.works-gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 24px;
-}
-.works-gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-}
-@media (min-width: 760px) {
-  .works-gallery { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-}
-
 /* Case */
 .case__text { font-size: 16px; color: var(--ink); }
 .case__pull {
