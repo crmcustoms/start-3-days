@@ -10,6 +10,33 @@
   <meta property="og:title" content="Продажі — за 3 дні. Без бюджету на софт." />
   <meta property="og:description" content="Ця сторінка зроблена саме так, як ми продаємо — тож ви вже дивитесь на результат." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="./public/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta property="og:site_name" content="CRMCUSTOMS" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Продажі — за 3 дні. Без бюджету на софт." />
+  <meta name="twitter:description" content="Лендинг на безкоштовному хостингу + Planfix + форма заявки → Planfix. Один платіж, без абонплати." />
+  <meta name="twitter:image" content="./public/og-image.jpg" />
+  <link rel="icon" href="./public/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./public/apple-icon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "CRMCUSTOMS",
+    "description": "Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі + форма заявки, яка не губиться. Продажі за 3 дні.",
+    "priceRange": "4 900₴ – 6 900₴",
+    "areaServed": "UA",
+    "founder": {
+      "@type": "Person",
+      "name": "Ткаченко Максим Вікторович"
+    },
+    "knowsAbout": ["CRM", "Planfix", "автоматизація", "лендинги", "продажі"]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -210,6 +237,48 @@
       <div class="trust-item">
         <span class="trust-item__num">Planfix</span>
         <span class="trust-item__label">експертний рівень, основна платформа</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ВІДГУКИ ================= -->
+  <section class="section" id="testimonials">
+    <span class="kicker kicker--dark reveal">Відгуки</span>
+    <h2 class="section__title reveal" data-delay="1">Що кажуть ті, хто вже працює</h2>
+
+    <div class="reviews reveal" data-delay="2">
+      <div class="review-card">
+        <div class="review-card__head">
+          <span class="review-card__stars">★★★★★</span>
+          <a class="review-card__doc" href="https://s3.us-east-1.amazonaws.com/crmcustoms.site/1111.pdf" target="_blank" rel="noopener" title="Лист подяки">📄 лист подяки</a>
+        </div>
+        <p class="review-card__text">«Система на базі CRM і Google Таблиць зробила процес контролю витрат прозорим — менеджери перестали збирати звіти вручну.»</p>
+        <div class="review-card__who">
+          <span class="review-card__name">Александр Лихтман</span>
+          <span class="review-card__org">PR-агентство для IT-компаній · itcomms.io</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__head">
+          <span class="review-card__stars">★★★★★</span>
+        </div>
+        <p class="review-card__text">«Автоматизація дозволила покращити контроль над запасами та збільшити продажі. Система проста у використанні, а підтримка завжди оперативна.»</p>
+        <div class="review-card__who">
+          <span class="review-card__name">Олександр Петренко</span>
+          <span class="review-card__org">генеральний директор · ТОВ «Смак»</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__head">
+          <span class="review-card__stars">★★★★★</span>
+        </div>
+        <p class="review-card__text">«Скоротили витрати на 20% та підвищили ефективність роботи персоналу. Дані тепер завжди під рукою — без запитів і очікувань.»</p>
+        <div class="review-card__who">
+          <span class="review-card__name">Ірина Коваленко</span>
+          <span class="review-card__org">фінансовий директор · ТОВ «ТехноПром»</span>
+        </div>
       </div>
     </div>
   </section>
@@ -453,6 +522,36 @@
     </ul>
   </section>
 
+  <!-- ================= ТЕРМІНОВІСТЬ ================= -->
+  <section class="section section--scarcity reveal" id="scarcity">
+    <div class="scarcity-bar">
+      <div class="scarcity__text">Для перших 5 клієнтів ціна — <b>4 900 ₴</b> замість 6 900 ₴</div>
+      <div class="scarcity__left" id="slots-left"><span class="scarcity__num" data-count="3">0</span> місця залишилось</div>
+      <div class="scarcity__track"><span class="scarcity__fill" id="scarcity-fill"></span></div>
+      <p class="scarcity__note">Разова оплата — без абонплати, без підписки. Коли 5 місць заповняться — повертається ціна 6 900 ₴.</p>
+    </div>
+  </section>
+
+  <!-- ================= ГАРАНТІЯ ================= -->
+  <section class="section" id="guarantee">
+    <span class="kicker kicker--dark reveal">Чесно</span>
+    <h2 class="section__title reveal" data-delay="1">Гарантія: не сподобається — поверну</h2>
+    <div class="guarantee reveal" data-delay="2">
+      <div class="guarantee__badge">7 днів</div>
+      <div>
+        <p class="guarantee__text">
+          Після запуску у вас є <b>7 днів</b>. Якщо система вам не підійде або
+          не працює так, як домовлялися, — напишете, і я поверну гроші.
+          Без питань, без «а може все-таки спробуйте ще».
+        </p>
+        <p class="guarantee__sub">
+          Це можливо, бо я не продаю «повітря» — я роблю конкретний результат за
+          3 дні і відповідаю за нього.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= ЦІНА ================= -->
   <section class="section section--price" id="price">
     <div class="price-card reveal">
@@ -460,6 +559,17 @@
       <div class="price-card__big">6 900 <span>₴</span></div>
       <p class="price-card__note">Разова оплата. Готово за 3 дні з моменту старту.</p>
       <a href="#form" class="btn btn--index btn--light" data-index="02" data-scroll>Хочу так само</a>
+    </div>
+  </section>
+
+  <!-- ================= TELEGRAM БАНЕР ================= -->
+  <section class="section" id="telegram">
+    <div class="tg-banner reveal">
+      <div class="tg-banner__text">
+        <span class="tg-banner__kicker">Швидше за форму</span>
+        <b>Напишіть у Telegram</b> — відповім за 15 хвилин, покажу схожі лендинги й порахуємо ваш варіант.
+      </div>
+      <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" class="btn btn--yellow">Написати в Telegram</a>
     </div>
   </section>
 

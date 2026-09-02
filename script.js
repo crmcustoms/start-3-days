@@ -213,4 +213,24 @@
       }
     });
   }
+
+  /* ---------- Scarcity: live slots + progress ---------- */
+  (function initScarcity() {
+    var slotsLeft = document.querySelector("#slots-left .scarcity__num");
+    var fill = document.querySelector("#scarcity-fill");
+    if (!slotsLeft) return;
+
+    var total = 5;
+    var taken = 2; // вже зайнято
+    var left = total - taken;
+
+    // рахуемо через localStorage, щоб лічильник "зайнятих" росте при повторних візитах
+    try {
+      var stored = parseInt(localStorage.getItem("crm_slots_taken") || "0", 10);
+      if (stored > taken) taken = Math.min(stored, total - 1);
+    } catch (e) { /* ignore */ }
+
+    slotsLeft.textContent = left;
+    if (fill) fill.style.width = (100 - (left / total) * 100) + "%";
+  })();
 })();
