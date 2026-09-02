@@ -28,13 +28,13 @@
   .hero p{color:var(--muted);font-size:17px;line-height:1.7;max-width:450px;margin-bottom:32px}
   .hero-cta{display:flex;gap:14px}
   .hero-note{margin-top:18px;font-size:13px;color:var(--muted)}
-  .mock{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-  .mock-bar{display:flex;gap:6px;margin-bottom:16px;align-items:center}
+  .mock{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .mock-photo{position:relative;border-radius:10px;overflow:hidden;margin-bottom:14px;height:230px}
+  .mock-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .mock-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,26,0) 40%,rgba(11,15,26,.6))}
+  .mock-bar{display:flex;gap:6px;margin-bottom:14px;align-items:center}
   .mock-bar i{width:10px;height:10px;border-radius:50%;background:#374151}
   .mock-bar i:nth-child(1){background:#f87171}.mock-bar i:nth-child(2){background:#fbbf24}
-  .mock-chart{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-  .chart{height:120px;display:flex;align-items:flex-end;gap:4px;background:rgba(255,255,255,.02);border-radius:8px;padding:12px}
-  .chart i{flex:1;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px 3px 0 0;opacity:.85}
   .mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .mstat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
   .mstat b{display:block;font-family:'Space Grotesk';font-size:20px}
@@ -77,10 +77,7 @@
     </div>
     <div class="mock">
       <div class="mock-bar"><i></i><i></i><i></i></div>
-      <div class="mock-chart">
-        <div class="chart"><i style="height:60%"></i><i style="height:75%"></i><i style="height:58%"></i><i style="height:85%"></i><i style="height:68%"></i></div>
-        <div class="chart"><i style="height:40%;background:linear-gradient(180deg,#f87171,#fb7185)"></i><i style="height:52%"></i><i style="height:45%;background:linear-gradient(180deg,#f87171,#fb7185)"></i><i style="height:62%"></i><i style="height:55%"></i></div>
-      </div>
+      <div class="mock-photo"><img src="./img/nexlab.jpg" alt="Аналітика бізнесу в реальному часі" /></div>
       <div class="mock-stats">
         <div class="mstat"><b>+38%</b><span>конверсія</span></div>
         <div class="mstat"><b>2.4x</b><span>окупаємість</span></div>

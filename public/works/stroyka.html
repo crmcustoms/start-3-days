@@ -26,12 +26,11 @@
   h1{font-family:'Russo One',sans-serif;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.05;text-transform:uppercase;margin-bottom:22px}
   .hero p{color:var(--muted);font-size:16px;line-height:1.6;max-width:440px;margin-bottom:30px}
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-  .blueprint{position:relative;height:460px;background:
-    linear-gradient(rgba(20,20,20,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(20,20,20,.07) 1px,transparent 1px);
-    background-size:24px 24px;border:1px solid var(--line);padding:20px}
-  .bp-card{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.06);padding:16px}
-  .bp1{top:60px;left:50px;width:180px;height:120px;border:2px solid var(--accent)}
+  .blueprint{position:relative;height:460px;overflow:hidden;border:1px solid var(--line);background:#f4f1ec}
+  .blueprint img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .blueprint::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(244,241,236,0) 55%,rgba(20,20,20,.5))}
+  .bp-card{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.14);padding:16px;z-index:2}
+  .bp1{top:60px;left:50px;width:180px;height:120px;border:2px solid var(--accent);background:rgba(255,255,255,.9)}
   .bp1::after{content:"проєкт";position:absolute;inset:auto 10px 8px 10px;font-family:'Roboto Condensed';font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--accent)}
   .bp2{bottom:50px;right:60px;width:220px;padding:14px}
   .bp2 b{font-family:'Russo One';font-size:20px}
@@ -83,6 +82,7 @@
       </div>
     </div>
     <div class="blueprint">
+      <img src="./img/stroyka.jpg" alt="Будівництво будинку під ключ" />
       <div class="bp-card bp1"></div>
       <div class="bp-card bp2"><b>287 об'єктів</b><span>здано за останні 7 років</span></div>
       <div class="bp-card bp3"><b>14 років</b><span>на ринку</span></div>
