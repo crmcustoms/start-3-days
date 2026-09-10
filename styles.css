@@ -316,6 +316,18 @@ a:hover { color: var(--ink-soft); }
 #three-things, #testimonials, #diy, #faq { background: var(--soft); max-width: none; }
 #three-things > *, #testimonials > *, #diy > *, #faq > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 
+/* Card-grid sections: the section stays full page width so the grid can
+   lay out multiple columns per row (matches design); only the plain text
+   elements keep the narrow reading width. */
+#works, #includes, .section--trust { max-width: none; }
+#works > .kicker, #works > .section__title, #works > .works__intro, #works > .works__note,
+#includes > .kicker, #includes > .section__title, #includes > .includes__intro, #includes > .includes__note {
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
+}
+#three-things > .includes, #includes > .includes, .works-grid { max-width: none; }
+
 .section--risk { background: var(--dark); color: #fff; max-width: none; }
 .section--risk > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .section--risk .section__title { color: #fff; }
