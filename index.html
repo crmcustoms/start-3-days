@@ -45,7 +45,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="./styles.css" />
 
   <!-- Meta Pixel Code: queue set up immediately (cheap), but the actual
        fbevents.js fetch/execution is deferred to idle time or first user
@@ -80,594 +79,362 @@
   src="https://www.facebook.com/tr?id=1759762755365587&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FFFFFF; color: #000000; font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #000000; text-decoration: none; }
+    a:hover { color: #767676; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3 { overflow-wrap: break-word; }
+    input, textarea, button { font-family: inherit; }
+    @keyframes crmticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes crmin { from { opacity: 0; transform: translate3d(0, 18px, 0); } to { opacity: 1; transform: none; } }
+    @keyframes crmrise { from { opacity: 0; transform: translate3d(0, 60px, 0); } to { opacity: 1; transform: none; } }
+    @keyframes crmside { from { opacity: 0; transform: translate3d(-40px, 0, 0); } to { opacity: 1; transform: none; } }
+    #top > div:last-child > div:first-child > * { animation: crmin 240ms cubic-bezier(0.2, 0, 0, 1) both; }
+    #top > div:last-child > div:first-child > *:nth-child(1) { animation-delay: 40ms; }
+    #top > div:last-child > div:first-child > *:nth-child(2) { animation-delay: 110ms; }
+    #top > div:last-child > div:first-child > *:nth-child(3) { animation-delay: 180ms; }
+    #top > div:last-child > div:first-child > *:nth-child(4) { animation-delay: 250ms; }
+    #top > div:last-child > div:first-child > *:nth-child(5) { animation-delay: 320ms; }
+    #top [data-word] { animation: crmside 460ms cubic-bezier(0.2, 0, 0, 1) 80ms both; }
+    #top [data-cut] { animation: crmrise 380ms cubic-bezier(0.2, 0, 0, 1) 200ms both; }
+    @supports (animation-timeline: view()) {
+      section:not(#top) > *, section:not(#top) > div > *, footer > div > * {
+        animation: crmin 1ms cubic-bezier(0.2, 0, 0, 1) both;
+        animation-timeline: view();
+        animation-range: entry 5% entry 48%;
+      }
+      section:not(#top) > div > *:nth-child(2), footer > div > *:nth-child(2) { animation-range: entry 10% entry 56%; }
+      section:not(#top) > div > *:nth-child(3), footer > div > *:nth-child(3) { animation-range: entry 14% entry 62%; }
+      section:not(#top) > div > *:nth-child(n + 4) { animation-range: entry 18% entry 68%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 1ms !important; animation-delay: 0ms !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
-<div class="page-frame">
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header" id="top">
-    <a href="#top" class="wordmark" aria-label="CRMCUSTOMS">
-      <span class="wm-crm">CRM</span><span class="wm-customs">CUSTOMS</span>
-    </a>
-    <a href="#form" class="btn btn--sm" data-scroll>Залишити заявку</a>
+<div style="max-width:1440px;margin:0 auto;border-left:1px solid #E5E5E5;border-right:1px solid #E5E5E5;overflow:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,40px);background:#FFFFFF;border-bottom:1px solid #E5E5E5">
+    <a href="#top" style="font-weight:800;font-size:clamp(17px,4.4vw,22px);letter-spacing:-0.02em"><span style="color:#FFD700;-webkit-text-stroke:1px #FFFFFF;paint-order:stroke fill">CRM</span><span>CUSTOMS</span></a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="#form" style="background:#FFD700;color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:14px 18px" style-hover="background:#000000;color:#FFD700">Залишити заявку</a>
+    </div>
   </header>
 
-  <main>
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero__watermark" aria-hidden="true">CRM</div>
-
-    <div class="hero__inner">
-      <span class="kicker">
-        <span class="kicker__dot"></span> Старт продажів з нуля
-      </span>
-
-      <h1 class="hero__title">
-        Продажі — <span class="hl">за 3 дні.</span><br />
-        Без бюджету на софт.
-      </h1>
-
-      <div class="hero__tags">
-        <div class="hero__badge">Planfix · 0 ₴</div>
-        <div class="hero__badge">GitHub Pages</div>
-      </div>
-
-      <div class="hero__stage">
-        <div class="hero__plate" aria-hidden="true"></div>
-        <img src="./professor.webp" alt="Спеціаліст CRMCUSTOMS" class="hero__mascot" width="435" height="574" fetchpriority="high" />
-      </div>
-
-      <p class="hero__sub">
-        Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі +
-        форма заявки, яка не губиться. Ця сторінка зроблена саме так, як ми
-        продаємо — тож ви вже дивитесь на результат.
-      </p>
-
-      <div class="hero__cta">
-        <a href="#form" class="btn btn--index" data-index="01" data-scroll>Хочу так само</a>
-        <div class="price-inline">
-          <span class="price-inline__now">6 900 ₴</span>
-          <span class="price-inline__note">перші 5 клієнтів — <b>4 900 ₴</b></span>
-          <span class="price-inline__sub">Один платіж. Без абонплати — ні зараз, ні потім.</span>
+  <section id="top" style="position:relative;border-bottom:1px solid #E5E5E5;overflow:hidden">
+    <div data-word="" style="position:absolute;top:8%;left:-2%;font-weight:800;font-size:clamp(160px,34vw,420px);line-height:0.8;letter-spacing:-0.04em;color:transparent;-webkit-text-stroke:1px #E5E5E5;pointer-events:none;user-select:none">CRM</div>
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,48px);align-items:end;padding:clamp(28px,6vw,64px) clamp(20px,5vw,64px) 0">
+      <div style="min-width:0;container-type:inline-size">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:clamp(20px,4vw,32px)">
+          <span style="width:8px;height:18px;background:#FFD700"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Старт продажів з нуля</span>
+        </div>
+        <h1 style="margin:0;font-weight:800;font-size:clamp(32px,8.4cqw,76px);line-height:0.98;letter-spacing:-0.03em;text-transform:uppercase">Продажі — за <span style="background:#FFD700;padding:0 0.08em;white-space:nowrap">3 дні.</span><br />Без бюджету<br />на софт.</h1>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(20px,4vw,32px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;padding:9px 12px;border:1px solid #E5E5E5;background:#F2F2F2">Planfix · 0 ₴</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;padding:9px 12px;border:1px solid #E5E5E5;background:#F2F2F2">GitHub Pages</span>
+        </div>
+        <p style="margin:clamp(20px,4vw,28px) 0 0;max-width:46ch;font-size:clamp(15px,4vw,18px);line-height:1.5;color:#000;text-wrap:pretty">Лендинг на безкоштовному хостингу + Planfix на безкоштовному тарифі + форма заявки, яка не губиться. Ця сторінка зроблена саме так, як ми продаємо — тож ви вже дивитесь на результат.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:clamp(24px,4vw,32px) 0 clamp(28px,5vw,48px)">
+          <a href="#form" style="background:#FFD700;color:#000;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:18px 24px" style-hover="background:#000000;color:#FFD700">Хочу так само</a>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;line-height:1.6;color:#767676"><s>6 900 ₴</s> перші 5 клієнтів — <b style="color:#000;font-size:15px">4 900 ₴</b><br />Один платіж. Без абонплати — ні зараз, ні потім.</div>
         </div>
       </div>
-    </div>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>Лендинг за 3 дні</span><span class="marquee__sep">·</span>
-        <span>0 ₴ на софт</span><span class="marquee__sep">·</span>
-        <span>Форма → Planfix</span><span class="marquee__sep">·</span>
-        <span>Жодної загубленої заявки</span><span class="marquee__sep">·</span>
-        <span>Лендинг за 3 дні</span><span class="marquee__sep">·</span>
-        <span>0 ₴ на софт</span><span class="marquee__sep">·</span>
-        <span>Форма → Planfix</span><span class="marquee__sep">·</span>
-        <span>Жодної загубленої заявки</span><span class="marquee__sep">·</span>
+      <div data-cut="" style="position:relative;min-width:0;align-self:end">
+        <div style="position:absolute;right:0;bottom:0;width:78%;height:66%;background:#F2F2F2;border-left:1px solid #E5E5E5"></div>
+        <div style="position:absolute;left:8%;top:6%;width:clamp(80px,14vw,140px);height:clamp(80px,14vw,140px);border:1px solid #FFD700"></div>
+        <img src="./professor.webp" alt="Спеціаліст CRMCUSTOMS" style="position:relative;width:100%;max-width:520px;margin:0 auto;object-fit:contain" />
       </div>
     </div>
   </section>
 
-  <!-- ================= ДЛЯ КОГО ЦЕ ================= -->
-  <section class="section" id="audience">
-    <span class="kicker kicker--dark reveal">Для кого це</span>
-    <h2 class="section__title reveal" data-delay="1">Якщо ви поки що самі — це саме для вас</h2>
-
-    <p class="section__text reveal" data-delay="2">
-      Не треба відділу продажів, менеджерів чи бюджету на рекламу. Це
-      працює, коли ви — майстер, який приймає записи в директі. Кондитер,
-      що губить замовлення в переписці. Майстриня манікюру з блокнотом.
-      Доставка, де «запишу, потім передзвоню».
-    </p>
-    <p class="section__text reveal" data-delay="3">
-      Одна людина + телефон — цього достатньо, щоб почати. Система для того
-      й потрібна, щоб не тримати все в голові.
-    </p>
-  </section>
-
-  <!-- ================= ТРИ РЕЧІ ================= -->
-  <section class="section" id="three-things">
-    <span class="kicker kicker--dark reveal">Простими словами</span>
-    <h2 class="section__title reveal" data-delay="1">Ви отримуєте три речі</h2>
-
-    <ul class="includes">
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">01</span>
-        <div>
-          <h3>Сторінку в інтернеті</h3>
-          <p>Куди приходять клієнти й залишають заявку.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">02</span>
-        <div>
-          <h3>Місце, де заявки лежать по поличках</h3>
-          <p>Видно кожного клієнта й на якому він етапі.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="3">
-        <span class="includes__no">03</span>
-        <div>
-          <h3>Сповіщення в телефон</h3>
-          <p>Коли хтось залишив заявку — ви одразу знаєте.</p>
-        </div>
-      </li>
-    </ul>
-    <p class="note">Ці три речі й означають «продажі за 3 дні». Все інше — деталі.</p>
-  </section>
-
-  <!-- ================= ВІДЕО ================= -->
-  <section class="section section--video" id="video">
-    <span class="kicker kicker--dark reveal">Як це працює</span>
-    <h2 class="section__title reveal" data-delay="1">Дивимось на практиці</h2>
-    <p class="video__intro reveal" data-delay="2">
-      3 хвилини — про те, з чого складається запуск і як виглядає
-      система, яку ви отримаєте.
-    </p>
-    <div class="video-frame reveal" data-delay="2">
-      <iframe
-        src="https://www.youtube.com/embed/qY1S7pJBw4k"
-        title="Відео CRMCUSTOMS"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"
-      ></iframe>
+  <div style="border-bottom:1px solid #E5E5E5;background:#111111;overflow:hidden;padding:14px 0">
+    <div style="display:flex;width:max-content;animation:crmticker 22s linear infinite;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#FFFFFF;white-space:nowrap">
+      <span style="padding-right:24px">Лендинг за 3 дні<span style="color:#FFD700">·</span> 0 ₴ на софт<span style="color:#FFD700">·</span> Форма → Planfix<span style="color:#FFD700">·</span> Жодної загубленої заявки<span style="color:#FFD700">·</span> Лендинг за 3 дні<span style="color:#FFD700">·</span> 0 ₴ на софт<span style="color:#FFD700">·</span> Форма → Planfix<span style="color:#FFD700">·</span> Жодної загубленої заявки<span style="color:#FFD700">·</span> </span>
+      <span style="padding-right:24px">Лендинг за 3 дні<span style="color:#FFD700">·</span> 0 ₴ на софт<span style="color:#FFD700">·</span> Форма → Planfix<span style="color:#FFD700">·</span> Жодної загубленої заявки<span style="color:#FFD700">·</span> Лендинг за 3 дні<span style="color:#FFD700">·</span> 0 ₴ на софт<span style="color:#FFD700">·</span> Форма → Planfix<span style="color:#FFD700">·</span> Жодної загубленої заявки<span style="color:#FFD700">·</span> </span>
     </div>
-  </section>
+  </div>
 
-  <!-- ================= РЕАЛЬНИЙ КЕЙС ================= -->
-  <section class="section section--case" id="case">
-    <span class="kicker reveal">Реальний кейс</span>
-    <h2 class="section__title reveal" data-delay="1">«Замовлення губились у трьох чатах одночасно»</h2>
-
-    <p class="case__text reveal" data-delay="2">
-      Майстриня, що робить торти на замовлення, приймала заявки в директі,
-      вайбері й дзвінками одночасно — і частина просто губилась. Потрібно
-      було почати продавати онлайн швидко і без бюджету: не загубити жодної
-      заявки і лишити можливість вирости в повноцінну систему пізніше.
-      Зібрали мінімально необхідну модель — без абонплат і прихованих
-      витрат: лендинг на безкоштовному хостингу, Planfix на безкоштовному
-      тарифі (до 1000 клієнтів), проста система обліку без зайвих полів.
-    </p>
-
-    <p class="case__pull reveal" data-delay="3">«Спочатку — результат, потім — нарощування.»</p>
-
-    <div class="stats reveal" data-delay="4">
-      <div class="stat">
-        <span class="stat__num" data-count="3" data-suffix=" дні">0</span>
-        <span class="stat__label">від старту до запуску</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num" data-count="0">0</span>
-        <span class="stat__label">загублених заявок</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num" data-count="0" data-suffix=" ₴">0</span>
-        <span class="stat__label">витрат на софт</span>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Для кого це</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px)">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">Якщо ви поки що самі — це саме для вас</h2>
+      <div style="min-width:0">
+        <p style="margin:0 0 16px;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Не треба відділу продажів, менеджерів чи бюджету на рекламу. Це працює, коли ви — майстер, який приймає записи в директі. Кондитер, що губить замовлення в переписці. Майстриня манікюру з блокнотом. Доставка, де «запишу, потім передзвоню».</p>
+        <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;color:#767676;text-wrap:pretty">Одна людина + телефон — цього достатньо, щоб почати. Система для того й потрібна, щоб не тримати все в голові.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= ДОСВІД ================= -->
-  <section class="section section--trust" id="trust">
-    <div class="trust-row reveal" data-delay="1">
-      <div class="trust-item">
-        <span class="trust-item__num">10+</span>
-        <span class="trust-item__label">років у CRM та автоматизації</span>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#F2F2F2">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Простими словами</span></div>
+    <h2 style="margin:0 0 clamp(28px,5vw,48px);font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Ви отримуєте три речі</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#FFFFFF;padding:clamp(24px,4vw,32px);min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#767676;margin-bottom:20px">01</div>
+        <h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(19px,5vw,24px);line-height:1.25">Сторінку в інтернеті</h3>
+        <p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Куди приходять клієнти й залишають заявку.</p>
       </div>
-      <div class="trust-item">
-        <span class="trust-item__num">~300</span>
-        <span class="trust-item__label">реалізованих проєктів</span>
+      <div style="background:#FFFFFF;padding:clamp(24px,4vw,32px);min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#767676;margin-bottom:20px">02</div>
+        <h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(19px,5vw,24px);line-height:1.25">Місце, де заявки лежать по поличках</h3>
+        <p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Видно кожного клієнта й на якому він етапі.</p>
       </div>
-      <div class="trust-item">
-        <span class="trust-item__num">Planfix</span>
-        <span class="trust-item__label">експертний рівень, основна платформа</span>
+      <div style="background:#FFFFFF;padding:clamp(24px,4vw,32px);min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#767676;margin-bottom:20px">03</div>
+        <h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(19px,5vw,24px);line-height:1.25">Сповіщення в телефон</h3>
+        <p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Коли хтось залишив заявку — ви одразу знаєте.</p>
       </div>
     </div>
+    <p style="margin:24px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;line-height:1.7;color:#767676">Ці три речі й означають «продажі за 3 дні». Все інше — деталі.</p>
   </section>
 
-  <!-- ================= ВІДГУКИ ================= -->
-  <section class="section" id="testimonials">
-    <span class="kicker kicker--dark reveal">Відгуки</span>
-    <h2 class="section__title reveal" data-delay="1">Що кажуть ті, хто вже працює</h2>
-
-    <div class="reviews reveal" data-delay="2">
-      <div class="review-card">
-        <div class="review-card__head">
-          <span class="review-card__stars">★★★★★</span>
-          <a class="review-card__doc" href="https://s3.us-east-1.amazonaws.com/crmcustoms.site/1111.pdf" target="_blank" rel="noopener" title="Лист подяки">📄 лист подяки</a>
-        </div>
-        <p class="review-card__text">«Система на базі CRM і Google Таблиць зробила процес контролю витрат прозорим — менеджери перестали збирати звіти вручну.»</p>
-        <div class="review-card__who">
-          <span class="review-card__name">Александр Лихтман</span>
-          <span class="review-card__org">
-            PR-агентство для IT-компаній ·
-            <a href="https://itcomms.io" target="_blank" rel="noopener" class="review-card__link">itcomms.io</a>
-          </span>
-        </div>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Як це працює</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px);align-items:start">
+      <div style="min-width:0">
+        <h2 style="margin:0 0 16px;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Дивимось на практиці</h2>
+        <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;color:#767676;max-width:40ch">3 хвилини — про те, з чого складається запуск і як виглядає система, яку ви отримаєте.</p>
       </div>
-
-      <div class="review-card">
-        <div class="review-card__head">
-          <span class="review-card__stars">★★★★★</span>
-        </div>
-        <p class="review-card__text">«Автоматизація дозволила покращити контроль над запасами та збільшити продажі. Система проста у використанні, а підтримка завжди оперативна.»</p>
-        <div class="review-card__who">
-          <span class="review-card__name">Олександр Петренко</span>
-          <span class="review-card__org">генеральний директор · ТОВ «Смак»</span>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card__head">
-          <span class="review-card__stars">★★★★★</span>
-        </div>
-        <p class="review-card__text">«Скоротили витрати на 20% та підвищили ефективність роботи персоналу. Дані тепер завжди під рукою — без запитів і очікувань.»</p>
-        <div class="review-card__who">
-          <span class="review-card__name">Ірина Коваленко</span>
-          <span class="review-card__org">фінансовий директор · ТОВ «ТехноПром»</span>
+      <div style="min-width:0;border:1px solid #E5E5E5;background:#111111">
+        <div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/qY1S7pJBw4k" title="CRMCUSTOMS — запуск за 3 дні" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= НАШІ РОБОТИ ================= -->
-  <section class="section" id="works">
-    <span class="kicker kicker--dark reveal">Портфоліо</span>
-    <h2 class="section__title reveal" data-delay="1">Запуски в різних бізнесах</h2>
-    <p class="works__intro reveal" data-delay="2">
-      Не важливо, що у вас: кав'ярня, виробництво чи салон краси. Схема
-      одна — сторінка, куди йдуть заявки, CRM, яка їх не губить, і
-      сповіщення вам у телефон. Ось як це виглядає для різних бізнесів.
-    </p>
-
-    <div class="works-grid reveal" data-delay="3">
-      <a href="https://crmcustoms.github.io/leleka/" target="_blank" rel="noopener" class="work-card">
-        <img src="./public/works/leleka.webp" alt="Продажі книги про подорожі — 10 000 км до себе" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">10 000 км до себе</span>
-          <span class="work-card__tag">книга · мотивація</span>
-        </span>
-      </a>
-      <a href="https://crmcustoms.github.io/lendos/" target="_blank" rel="noopener" class="work-card">
-        <img src="./public/works/lendos.webp" alt="Продажі магазину пледів — PLEDSHOP" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">PLEDSHOP</span>
-          <span class="work-card__tag">e-commerce · товари</span>
-        </span>
-      </a>
-      <div class="work-card">
-        <img src="./public/works/cafe.webp" alt="Продажі кав'ярні" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">Кав'ярня</span>
-          <span class="work-card__tag">ресторани · харчування</span>
-        </span>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Реальний кейс</span></div>
+    <h2 style="margin:0 0 clamp(24px,4vw,40px);font-weight:800;font-size:clamp(25px,5vw,44px);line-height:1.04;letter-spacing:-0.02em;text-transform:uppercase;max-width:22ch;text-wrap:balance">«Замовлення губились у трьох чатах одночасно»</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Майстриня, що робить торти на замовлення, приймала заявки в директі, вайбері й дзвінками одночасно — і частина просто губилась. Потрібно було почати продавати онлайн швидко і без бюджету: не загубити жодної заявки і лишити можливість вирости в повноцінну систему пізніше. Зібрали мінімально необхідну модель — без абонплат і прихованих витрат: лендинг на безкоштовному хостингу, Planfix на безкоштовному тарифі (до 1000 клієнтів), проста система обліку без зайвих полів.</p>
+      <div style="min-width:0">
+        <blockquote style="margin:0 0 24px;padding:24px;background:#FFD700;color:#000;font-weight:800;font-size:clamp(19px,4.6vw,26px);line-height:1.15;letter-spacing:-0.02em">«Спочатку — результат, потім — нарощування.»</blockquote>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+          <div style="background:#FFF;padding:20px"><div style="font-weight:800;font-size:clamp(26px,6vw,38px);letter-spacing:-0.02em">3 дні</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">від старту до запуску</div></div>
+          <div style="background:#FFF;padding:20px"><div style="font-weight:800;font-size:clamp(26px,6vw,38px);letter-spacing:-0.02em">0</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">загублених заявок</div></div>
+          <div style="background:#FFF;padding:20px"><div style="font-weight:800;font-size:clamp(26px,6vw,38px);letter-spacing:-0.02em">0 ₴</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">витрат на софт</div></div>
+        </div>
       </div>
-      <div class="work-card">
-        <img src="./public/works/fitness.webp" alt="Продажі фітнес-студії" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">Фітнес</span>
-          <span class="work-card__tag">спорт · здоров'я</span>
-        </span>
-      </div>
-      <div class="work-card">
-        <img src="./public/works/stroyka.webp" alt="Продажі будівельної компанії" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">Будівництво</span>
-          <span class="work-card__tag">послуги · B2B</span>
-        </span>
-      </div>
-      <div class="work-card">
-        <img src="./public/works/nexlab.webp" alt="Продажі IT-стартапу" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">IT-стартап</span>
-          <span class="work-card__tag">tech · SaaS</span>
-        </span>
-      </div>
-      <div class="work-card">
-        <img src="./public/works/luna.webp" alt="Продажі салону краси" loading="lazy" />
-        <span class="work-card__bar">
-          <span class="work-card__name">Салон краси</span>
-          <span class="work-card__tag">б'юті · послуги</span>
-        </span>
-      </div>
-      <a href="#form" class="work-card work-card--cta" data-scroll>
-        <span class="work-card--cta__title">Під ваш бізнес зберемо свою схему</span>
-        <span class="btn btn--sm">Залишити заявку</span>
-      </a>
     </div>
-    <p class="works__note reveal" data-delay="4">Це приклади стартового запуску.</p>
-  </section>
-
-  <!-- ================= А ЩО ЯКЩО НЕ ЗЛЕТИТЬ ================= -->
-  <section class="section section--risk" id="risk">
-    <span class="kicker kicker--dark reveal">Чесно про ризик</span>
-    <h2 class="section__title reveal" data-delay="1">А що як продажі не злетять одразу?</h2>
-
-    <p class="risk__text reveal" data-delay="2">
-      Ви не підписуєтесь на щомісячний рахунок. Оплата — один раз, за
-      роботу. Planfix на безкоштовному тарифі лишається безкоштовним, поки
-      самі не виростете з нього — ми нічого не вмикаємо в оплату за вас.
-      Якщо перші заявки йдуть повільно, це не рахунок, який продовжує
-      капати щомісяця.
-    </p>
-  </section>
-
-  <!-- ================= ЩО ВХОДИТЬ ================= -->
-  <section class="section" id="includes">
-    <span class="kicker kicker--dark reveal">Комплект</span>
-    <h2 class="section__title reveal" data-delay="1">Що входить</h2>
-    <p class="includes__intro reveal" data-delay="1">Готове рішення — нічого не налаштовуєте самі, ми віддаємо те, що вже працює.</p>
-
-    <ul class="includes">
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">01</span>
-        <div>
-          <h3>Лендинг на безкоштовному хостингу</h3>
-          <p>GitHub Pages — статична сторінка без щомісячної плати за хостинг.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">02</span>
-        <div>
-          <h3>Planfix на безкоштовному тарифі</h3>
-          <p>Повноцінна CRM-архітектура, до 1000 клієнтів — 0 ₴.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="3">
-        <span class="includes__no">03</span>
-        <div>
-          <h3>Форма заявки → картка клієнта і угоди</h3>
-          <p>Заявка з сайту одразу перетворюється на робочі картки в системі.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="3">
-        <span class="includes__no">04</span>
-        <div>
-          <h3>Базова воронка продажів</h3>
-          <p>Готові етапи, щоб бачити кожну угоду й не втрачати клієнтів.</p>
-        </div>
-      </li>
-    </ul>
-    <p class="includes__note reveal" data-delay="4">
-      Нічого не треба готувати заздалегідь — ні фото, ні текстів, ні
-      логотипа. Розкажете пару речень про бізнес, решту зберемо разом за
-      15 хвилин.
-    </p>
-  </section>
-
-  <!-- ================= ЧИМ ЦЕ ВІДРІЗНЯЄТЬСЯ ВІД КОНСТРУКТОРА ================= -->
-  <section class="section" id="diy">
-    <span class="kicker kicker--dark reveal">Чим це відрізняється від конструктора</span>
-    <h2 class="section__title reveal" data-delay="1">Ви вже пробували зробити самі?</h2>
-
-    <p class="section__text reveal" data-delay="2">
-      Тільда, Хорошоп, магазин в Instagram — ви налаштовуєте самі,
-      витрачаєте вечори, а потім кидаєте, бо ніколи доробити.
-    </p>
-    <p class="section__text reveal" data-delay="3">
-      Тут навпаки: налаштовую я, ви одразу отримуєте робочу систему. Не
-      конструктор, який треба опанувати, — готовий результат, у який просто
-      приходять заявки.
-    </p>
-  </section>
-
-  <!-- ================= БЕЗКОШТОВНО ≠ ОБРІЗАНО ================= -->
-  <section class="section" id="system">
-    <span class="kicker kicker--dark reveal">Ще один момент</span>
-    <h2 class="section__title reveal" data-delay="1">Безкоштовно — не означає обрізано</h2>
-
-    <p class="system__intro reveal" data-delay="1">
-      CRM — це просто система, де зберігаються всі заявки і клієнти, щоб
-      жодна заявка не загубилась і завжди було видно, на якому етапі кожна
-      угода.
-    </p>
-    <p class="system__intro reveal" data-delay="1">
-      Багато хто думає: раз безкоштовно — значить іграшкове. Planfix на
-      ринку понад 15 років — довше за більшість відомих CRM — і сам себе
-      називає <b>«CRM-Трансформер»</b>: підлаштовується під компанію і
-      замінює одразу кілька програм. Це комбайн, а не обрізаний лісапед.
-    </p>
-
-    <div class="pfx-gallery reveal" data-delay="2">
-      <img src="./public/planfix/planfix-1.webp" alt="Інтерфейс Planfix — планувальник задач" width="910" height="780" loading="lazy" decoding="async" />
-      <img src="./public/planfix/planfix-2.webp" alt="Інтерфейс Planfix — розклад і бронювання" width="910" height="780" loading="lazy" decoding="async" />
-      <img src="./public/planfix/planfix-3.webp" alt="Інтерфейс Planfix — канбан-дошка задач" width="910" height="780" loading="lazy" decoding="async" />
-    </div>
-    <p class="pfx-gallery__caption">Так виглядає робочий інтерфейс Planfix — не спрощена демо-версія.</p>
-
-    <div class="split">
-      <article class="split__card reveal" data-delay="3">
-        <span class="split__no">01</span>
-        <h3>Та сама система, що тримає повний відділ продажів</h3>
-        <p>
-          Planfix, який ви отримуєте — та сама архітектура, на якій у нас
-          працюють клієнти з повною автоматизацією одного відділу продажів і
-          клієнти з кількома відділами й складними інтеграціями. Ви
-          стартуєте знизу, не на іншій системі.
-        </p>
-      </article>
-
-      <article class="split__card reveal" data-delay="4">
-        <span class="split__no">02</span>
-        <h3>Росте разом із бізнесом</h3>
-        <p>
-          Один Planfix-акаунт масштабується хоч до кількох відділень в одному
-          бізнесі, хоч до кількох окремих бізнесів. Коли виростете —
-          переїзду на іншу CRM не буде, просто розширюється те, що вже
-          налаштовано.
-        </p>
-      </article>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5;margin-top:clamp(24px,4vw,40px)">
+      <div style="background:#F2F2F2;padding:20px"><div style="font-weight:800;font-size:clamp(22px,5vw,30px);letter-spacing:-0.02em">10+ років</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">у CRM та автоматизації</div></div>
+      <div style="background:#F2F2F2;padding:20px"><div style="font-weight:800;font-size:clamp(22px,5vw,30px);letter-spacing:-0.02em">~300</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">реалізованих проєктів</div></div>
+      <div style="background:#F2F2F2;padding:20px"><div style="font-weight:800;font-size:clamp(22px,5vw,30px);letter-spacing:-0.02em">Planfix</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:6px">експертний рівень, основна платформа</div></div>
     </div>
   </section>
 
-  <!-- ================= ПІСЛЯ ЗАПУСКУ НЕ КИДАЮ ================= -->
-  <section class="section" id="support">
-    <span class="kicker kicker--dark reveal">Далі</span>
-    <h2 class="section__title reveal" data-delay="1">Після запуску не кидаю</h2>
-
-    <p class="section__text reveal" data-delay="2">
-      Тиждень на зв'язку — виникне питання, напишете, покажу. Без
-      інструкції на 40 сторінок і «розбирайтесь самі».
-    </p>
-    <p class="section__text reveal" data-delay="3">
-      Дехто зі мною вже по десять років. Не згадують ні про домен, ні про
-      хостинг, ні про паролі — усе це на мені. Треба щось — просто пишуть.
-    </p>
-    <p class="note">Базовий супровід — тиждень після запуску. Далі, якщо треба вести все за вас, — за домовленістю.</p>
-  </section>
-
-  <!-- ================= ЧАСТІ ПИТАННЯ ================= -->
-  <section class="section" id="faq">
-    <span class="kicker kicker--dark reveal">Перед тим як писати</span>
-    <h2 class="section__title reveal" data-delay="1">Питання, які зазвичай виникають</h2>
-
-    <ul class="includes includes--faq">
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">?</span>
-        <div>
-          <h3>А раптом не підійде?</h3>
-          <p>Оплата одноразова, без підписки. Planfix лишається безкоштовним, поки самі не виростете з тарифу — рахунок, що капає щомісяця, тут не виникає.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="2">
-        <span class="includes__no">?</span>
-        <div>
-          <h3>Скільки часу це займе з мого боку?</h3>
-          <p>Приблизно 15 хвилин розмови про бізнес. Решту — лендинг, Planfix, форму — збираю я.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="3">
-        <span class="includes__no">?</span>
-        <div>
-          <h3>Я взагалі не розбираюсь у CRM</h3>
-          <p>Не треба. Це не конструктор, який треба освоювати, — готова система, у яку одразу приходять заявки. Плюс тиждень супроводу після запуску.</p>
-        </div>
-      </li>
-      <li class="includes__item reveal" data-delay="3">
-        <span class="includes__no">?</span>
-        <div>
-          <h3>Чому Planfix, а не Тільда чи інший конструктор?</h3>
-          <p>Тільда — це сторінка. Planfix — CRM, яка на ринку 15+ років і росте разом з бізнесом: та сама архітектура тримає і одну людину, і повний відділ продажів.</p>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ================= ТЕРМІНОВІСТЬ ================= -->
-  <section class="section section--scarcity reveal" id="scarcity">
-    <div class="scarcity-bar">
-      <div class="scarcity__text">Для перших 5 клієнтів ціна — <b>4 900 ₴</b> замість 6 900 ₴</div>
-      <div class="scarcity__left" id="slots-left"><span class="scarcity__num" data-count="3">0</span> місця залишилось</div>
-      <div class="scarcity__track"><span class="scarcity__fill" id="scarcity-fill"></span></div>
-      <p class="scarcity__note">Разова оплата — без абонплати, без підписки. Коли 5 місць заповняться — повертається ціна 6 900 ₴.</p>
-    </div>
-  </section>
-
-  <!-- ================= ГАРАНТІЯ ================= -->
-  <section class="section" id="guarantee">
-    <span class="kicker kicker--dark reveal">Чесно</span>
-    <div class="guarantee reveal" data-delay="2">
-      <div class="guarantee__intro">
-        <h2 class="section__title">Гарантія: не сподобається — поверну</h2>
-        <div class="guarantee__badge">7 днів</div>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#F2F2F2">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Відгуки</span></div>
+    <h2 style="margin:0 0 clamp(28px,5vw,48px);font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Що кажуть ті, хто вже працює</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#FFF;padding:clamp(24px,4vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px"><span style="color:#FFD700;font-size:14px;letter-spacing:2px;-webkit-text-stroke:0.5px #000">★★★★★</span><a href="https://s3.us-east-1.amazonaws.com/crmcustoms.site/1111.pdf" target="_blank" rel="noopener" title="Лист подяки" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;border-bottom:1px solid #FFD700">лист подяки</a></div>
+        <p style="margin:0;font-size:15px;line-height:1.5">«Система на базі CRM і Google Таблиць зробила процес контролю витрат прозорим — менеджери перестали збирати звіти вручну.»</p>
+        <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#767676;line-height:1.7"><span style="color:#000;font-weight:500">Александр Лихтман</span><br />PR-агентство для IT-компаній · <a href="https://itcomms.io" target="_blank" rel="noopener" style="border-bottom:1px solid #E5E5E5">itcomms.io</a></div>
       </div>
-      <div>
-        <p class="guarantee__text">
-          Після запуску у вас є <b>7 днів</b>. Якщо система вам не підійде або
-          не працює так, як домовлялися, — напишете, і я поверну гроші.
-          Без питань, без «а може все-таки спробуйте ще».
-        </p>
-        <p class="guarantee__sub">
-          Це можливо, бо я не продаю «повітря» — я роблю конкретний результат за
-          3 дні і відповідаю за нього.
-        </p>
+      <div style="background:#FFF;padding:clamp(24px,4vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0">
+        <span style="color:#FFD700;font-size:14px;letter-spacing:2px;-webkit-text-stroke:0.5px #000">★★★★★</span>
+        <p style="margin:0;font-size:15px;line-height:1.5">«Автоматизація дозволила покращити контроль над запасами та збільшити продажі. Система проста у використанні, а підтримка завжди оперативна.»</p>
+        <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#767676;line-height:1.7"><span style="color:#000;font-weight:500">Олександр Петренко</span><br />генеральний директор · ТОВ «Смак»</div>
+      </div>
+      <div style="background:#FFF;padding:clamp(24px,4vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0">
+        <span style="color:#FFD700;font-size:14px;letter-spacing:2px;-webkit-text-stroke:0.5px #000">★★★★★</span>
+        <p style="margin:0;font-size:15px;line-height:1.5">«Скоротили витрати на 20% та підвищили ефективність роботи персоналу. Дані тепер завжди під рукою — без запитів і очікувань.»</p>
+        <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#767676;line-height:1.7"><span style="color:#000;font-weight:500">Ірина Коваленко</span><br />фінансовий директор · ТОВ «ТехноПром»</div>
       </div>
     </div>
   </section>
 
-  <!-- ================= ФІНАЛЬНИЙ CTA: ЦІНА + TELEGRAM ================= -->
-  <section class="section section--final" id="price">
-    <div class="final-cta">
-      <div class="final-cta__price reveal">
-        <p class="final-cta__kicker">Для перших 5 клієнтів — 4 900 ₴</p>
-        <div class="final-cta__amount">
-          <span class="final-cta__now">4 900 ₴</span>
-          <s class="final-cta__was">6 900 ₴</s>
-        </div>
-        <p class="final-cta__note">Разова оплата. Готово за 3 дні з моменту старту.</p>
-        <a href="#form" class="btn btn--index btn--light" data-index="02" data-scroll>Хочу так само</a>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Портфоліо</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,4vw,48px);margin-bottom:clamp(28px,5vw,48px)">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Запуски в різних бізнесах</h2>
+      <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;color:#767676;text-wrap:pretty">Не важливо, що у вас: кав'ярня, виробництво чи салон краси. Схема одна — сторінка, куди йдуть заявки, CRM, яка їх не губить, і сповіщення вам у телефон. Ось як це виглядає для різних бізнесів.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/leleka.webp" alt="Продажі книги про подорожі — 10 000 км до себе" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">10 000 км до себе</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">книга · мотивація</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/lendos.webp" alt="Продажі магазину пледів — PLEDSHOP" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">PLEDSHOP</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">e-commerce · товари</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/cafe.webp" alt="Продажі кав'ярні" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">Кав'ярня</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">ресторани · харчування</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/fitness.webp" alt="Продажі фітнес-студії" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">Фітнес</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">спорт · здоров'я</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/stroyka.webp" alt="Продажі будівельної компанії" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">Будівництво</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">послуги · B2B</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/nexlab.webp" alt="Продажі IT-стартапу" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">IT-стартап</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">tech · SaaS</div></div></div>
+      <div style="background:#FFF;padding:12px;min-width:0"><img src="./public/works/luna.webp" alt="Продажі салону краси" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border:1px solid #E5E5E5" /><div style="padding:14px 4px 6px"><div style="font-weight:600;font-size:17px">Салон краси</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#767676;margin-top:4px">б'юті · послуги</div></div></div>
+      <div style="background:#FFD700;padding:clamp(18px,3vw,24px);min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
+        <div style="font-weight:800;font-size:clamp(19px,4.4vw,24px);line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase">Під ваш бізнес зберемо свою схему</div>
+        <a href="#form" style="align-self:flex-start;background:#000;color:#FFD700;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:14px 18px" style-hover="background:#FFFFFF;color:#000000">Залишити заявку</a>
       </div>
-      <div class="tg-banner reveal" id="telegram">
-        <div class="tg-banner__text">
-          <span class="tg-banner__kicker">Швидше за форму</span>
-          <b>Напишіть у Telegram</b> — відповім за 15 хвилин, покажу схожі лендинги й порахуємо ваш варіант.
-        </div>
-        <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" class="btn btn--yellow">Написати в Telegram</a>
+    </div>
+    <p style="margin:20px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#767676">Це приклади стартового запуску.</p>
+  </section>
+
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#111111;color:#FFFFFF">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#FFD700">Чесно про ризик</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">А що як продажі не злетять одразу?</h2>
+      <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.6;text-wrap:pretty">Ви не підписуєтесь на щомісячний рахунок. Оплата — один раз, за роботу. Planfix на безкоштовному тарифі лишається безкоштовним, поки самі не виростете з нього — ми нічого не вмикаємо в оплату за вас. Якщо перші заявки йдуть повільно, це не рахунок, який продовжує капати щомісяця.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Комплект</span></div>
+    <h2 style="margin:0 0 12px;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Що входить</h2>
+    <p style="margin:0 0 clamp(28px,5vw,44px);font-size:clamp(15px,4vw,17px);line-height:1.55;color:#767676;max-width:50ch">Готове рішення — нічого не налаштовуєте самі, ми віддаємо те, що вже працює.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#000;background:#FFD700;display:inline-block;padding:4px 8px;margin-bottom:18px">01</div><h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(18px,4.6vw,21px);line-height:1.25">Лендинг на безкоштовному хостингу</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#767676">GitHub Pages — статична сторінка без щомісячної плати за хостинг.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#000;background:#FFD700;display:inline-block;padding:4px 8px;margin-bottom:18px">02</div><h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(18px,4.6vw,21px);line-height:1.25">Planfix на безкоштовному тарифі</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Повноцінна CRM-архітектура, до 1000 клієнтів — 0 ₴.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#000;background:#FFD700;display:inline-block;padding:4px 8px;margin-bottom:18px">03</div><h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(18px,4.6vw,21px);line-height:1.25">Форма заявки → картка клієнта і угоди</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Заявка з сайту одразу перетворюється на робочі картки в системі.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#000;background:#FFD700;display:inline-block;padding:4px 8px;margin-bottom:18px">04</div><h3 style="margin:0 0 10px;font-weight:600;font-size:clamp(18px,4.6vw,21px);line-height:1.25">Базова воронка продажів</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#767676">Готові етапи, щоб бачити кожну угоду й не втрачати клієнтів.</p></div>
+    </div>
+    <p style="margin:24px 0 0;font-size:clamp(15px,4vw,17px);line-height:1.55;max-width:56ch;text-wrap:pretty">Нічого не треба готувати заздалегідь — ні фото, ні текстів, ні логотипа. Розкажете пару речень про бізнес, решту зберемо разом за 15 хвилин.</p>
+  </section>
+
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#F2F2F2">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Чим це відрізняється від конструктора</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">Ви вже пробували зробити самі?</h2>
+      <div style="min-width:0">
+        <p style="margin:0 0 16px;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Тільда, Хорошоп, магазин в Instagram — ви налаштовуєте самі, витрачаєте вечори, а потім кидаєте, бо ніколи доробити.</p>
+        <p style="margin:0;padding-left:20px;border-left:8px solid #FFD700;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Тут навпаки: налаштовую я, ви одразу отримуєте робочу систему. Не конструктор, який треба опанувати, — готовий результат, у який просто приходять заявки.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= ФОРМА ================= -->
-  <section class="section section--form" id="form">
-    <span class="kicker reveal">Заявка</span>
-    <div class="form-layout">
-      <div class="form-layout__intro reveal" data-delay="1">
-        <h2 class="section__title">Залишити заявку</h2>
-        <p class="form__note">
-          Заявка одразу потрапляє в Planfix — ту саму систему, яку ви отримуєте.
-        </p>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Ще один момент</span></div>
+    <h2 style="margin:0 0 clamp(24px,4vw,40px);font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Безкоштовно — не означає обрізано</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">CRM — це просто система, де зберігаються всі заявки і клієнти, щоб жодна заявка не загубилась і завжди було видно, на якому етапі кожна угода.</p>
+      <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Багато хто думає: раз безкоштовно — значить іграшкове. Planfix на ринку понад 15 років — довше за більшість відомих CRM — і сам себе називає <b style="background:#FFD700;padding:0 4px">«CRM-Трансформер»</b>: підлаштовується під компанію і замінює одразу кілька програм. Це комбайн, а не обрізаний лісапед.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5;margin-top:clamp(28px,5vw,44px)">
+      <img src="./public/planfix/planfix-1.webp" alt="Інтерфейс Planfix — планувальник задач" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#FFF" />
+      <img src="./public/planfix/planfix-2.webp" alt="Інтерфейс Planfix — розклад і бронювання" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#FFF" />
+      <img src="./public/planfix/planfix-3.webp" alt="Інтерфейс Planfix — канбан-дошка задач" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#FFF" />
+    </div>
+    <p style="margin:16px 0 clamp(32px,5vw,56px);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#767676">Так виглядає робочий інтерфейс Planfix — не спрощена демо-версія.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#F2F2F2;padding:clamp(24px,4vw,32px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#767676;margin-bottom:16px">01</div><h3 style="margin:0 0 12px;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25">Та сама система, що тримає повний відділ продажів</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#000">Planfix, який ви отримуєте — та сама архітектура, на якій у нас працюють клієнти з повною автоматизацією одного відділу продажів і клієнти з кількома відділами й складними інтеграціями. Ви стартуєте знизу, не на іншій системі.</p></div>
+      <div style="background:#F2F2F2;padding:clamp(24px,4vw,32px);min-width:0"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#767676;margin-bottom:16px">02</div><h3 style="margin:0 0 12px;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25">Росте разом із бізнесом</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#000">Один Planfix-акаунт масштабується хоч до кількох відділень в одному бізнесі, хоч до кількох окремих бізнесів. Коли виростете — переїзду на іншу CRM не буде, просто розширюється те, що вже налаштовано.</p></div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Далі</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Після запуску не кидаю</h2>
+      <div style="min-width:0">
+        <p style="margin:0 0 16px;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Тиждень на зв'язку — виникне питання, напишете, покажу. Без інструкції на 40 сторінок і «розбирайтесь самі».</p>
+        <p style="margin:0 0 20px;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Дехто зі мною вже по десять років. Не згадують ні про домен, ні про хостинг, ні про паролі — усе це на мені. Треба щось — просто пишуть.</p>
+        <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;line-height:1.7;color:#767676;border-top:1px solid #E5E5E5;padding-top:16px">Базовий супровід — тиждень після запуску. Далі, якщо треба вести все за вас, — за домовленістю.</p>
       </div>
+    </div>
+  </section>
 
-      <form class="form form-card reveal" data-delay="2" id="lead-form" novalidate>
-        <label class="field">
-          <span class="field__label">Ім'я</span>
-          <input type="text" name="name" required autocomplete="name" placeholder="Як до вас звертатись" />
-        </label>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#F2F2F2">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Перед тим як писати</span></div>
+    <h2 style="margin:0 0 clamp(28px,5vw,44px);font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Питання, які зазвичай виникають</h2>
+    <div style="display:grid;gap:1px;background:#E5E5E5;border:1px solid #E5E5E5">
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px"><h3 style="margin:0;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25"><span style="color:#FFD700;-webkit-text-stroke:1px #000;margin-right:8px">?</span>А раптом не підійде?</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#767676">Оплата одноразова, без підписки. Planfix лишається безкоштовним, поки самі не виростете з тарифу — рахунок, що капає щомісяця, тут не виникає.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px"><h3 style="margin:0;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25"><span style="color:#FFD700;-webkit-text-stroke:1px #000;margin-right:8px">?</span>Скільки часу це займе з мого боку?</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#767676">Приблизно 15 хвилин розмови про бізнес. Решту — лендинг, Planfix, форму — збираю я.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px"><h3 style="margin:0;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25"><span style="color:#FFD700;-webkit-text-stroke:1px #000;margin-right:8px">?</span>Я взагалі не розбираюсь у CRM</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#767676">Не треба. Це не конструктор, який треба освоювати, — готова система, у яку одразу приходять заявки. Плюс тиждень супроводу після запуску.</p></div>
+      <div style="background:#FFF;padding:clamp(22px,4vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px"><h3 style="margin:0;font-weight:600;font-size:clamp(18px,4.6vw,22px);line-height:1.25"><span style="color:#FFD700;-webkit-text-stroke:1px #000;margin-right:8px">?</span>Чому Planfix, а не Тільда чи інший конструктор?</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#767676">Тільда — це сторінка. Planfix — CRM, яка на ринку 15+ років і росте разом з бізнесом: та сама архітектура тримає і одну людину, і повний відділ продажів.</p></div>
+    </div>
+  </section>
 
-        <label class="field">
-          <span class="field__label">Телефон або Telegram</span>
-          <input type="text" name="phone" required autocomplete="tel" placeholder="+380… або @username" />
-        </label>
+  <section style="padding:clamp(44px,8vw,72px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#FFD700;color:#000">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,4vw,40px);align-items:center">
+      <div style="min-width:0">
+        <div style="font-weight:800;font-size:clamp(23px,4.6vw,38px);line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase">Для перших 5 клієнтів ціна — <span style="background:#000;color:#FFD700;padding:0 8px">4 900 ₴</span> замість 6 900 ₴</div>
+      </div>
+      <div style="min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">5 місць залишилось</div>
+        <div style="display:flex;gap:6px;margin-bottom:16px"><span style="width:26px;height:10px;background:#000"></span><span style="width:26px;height:10px;background:#000"></span><span style="width:26px;height:10px;background:#000"></span><span style="width:26px;height:10px;background:#000"></span><span style="width:26px;height:10px;background:#000"></span></div>
+        <p style="margin:0;font-size:15px;line-height:1.55">Разова оплата — без абонплати, без підписки. Коли 5 місць заповняться — повертається ціна 6 900 ₴.</p>
+      </div>
+    </div>
+  </section>
 
-        <label class="field">
-          <span class="field__label">Коротко про бізнес <em>(необов'язково)</em></span>
-          <textarea name="comment" rows="3" placeholder="Що продаєте і на якому етапі"></textarea>
-        </label>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Чесно</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,48px)">
+      <div style="min-width:0">
+        <h2 style="margin:0 0 20px;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">Гарантія: не сподобається — поверну</h2>
+        <div style="display:inline-block;border:1px solid #000;padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase">7 днів</div>
+      </div>
+      <div style="min-width:0">
+        <p style="margin:0 0 16px;font-size:clamp(15px,4vw,17px);line-height:1.55;text-wrap:pretty">Після запуску у вас є <b style="background:#FFD700;padding:0 4px">7 днів</b>. Якщо система вам не підійде або не працює так, як домовлялися, — напишете, і я поверну гроші. Без питань, без «а може все-таки спробуйте ще».</p>
+        <p style="margin:0;font-size:clamp(15px,4vw,17px);line-height:1.55;color:#767676;text-wrap:pretty">Це можливо, бо я не продаю «повітря» — я роблю конкретний результат за 3 дні і відповідаю за нього.</p>
+      </div>
+    </div>
+  </section>
 
-        <button type="submit" class="btn btn--index btn--full" data-index="03">Залишити заявку</button>
+  <section style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5;background:#111111;color:#FFFFFF">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,5vw,56px);align-items:center">
+      <div style="min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#FFD700;margin-bottom:16px">Для перших 5 клієнтів — 4 900 ₴</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:16px;margin-bottom:20px">
+          <span style="font-weight:800;font-size:clamp(44px,10vw,80px);line-height:0.9;letter-spacing:-0.03em;color:#FFD700">4 900 ₴</span>
+          <s style="font-family:'JetBrains Mono',monospace;font-size:16px;color:#767676">6 900 ₴</s>
+        </div>
+        <p style="margin:0 0 24px;font-size:clamp(15px,4vw,17px);line-height:1.55">Разова оплата. Готово за 3 дні з моменту старту.</p>
+        <a href="#form" style="display:inline-block;background:#FFD700;color:#000;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:18px 24px" style-hover="background:#FFFFFF">Хочу так само</a>
+      </div>
+      <div style="min-width:0;border:1px solid #767676;padding:clamp(24px,4vw,32px)">
+        <p style="margin:0 0 20px;font-size:clamp(15px,4vw,17px);line-height:1.55">Швидше за форму <b>Напишіть у Telegram</b> — відповім за 15 хвилин, покажу схожі лендинги й порахуємо ваш варіант.</p>
+        <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" style="display:inline-block;border:1px solid #FFD700;color:#FFD700;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 22px" style-hover="background:#FFD700;color:#000000">Написати в Telegram</a>
+      </div>
+    </div>
+  </section>
 
-        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+  <section id="form" style="padding:clamp(56px,10vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid #E5E5E5">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:8px;height:18px;background:#FFD700"></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#767676">Заявка</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px)">
+      <div style="min-width:0">
+        <h2 style="margin:0 0 20px;font-weight:800;font-size:clamp(26px,5.4vw,48px);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase">Залишити заявку</h2>
+        <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;line-height:1.7;color:#767676">Заявка одразу потрапляє в Planfix — ту саму систему, яку ви отримуєте.</p>
+      </div>
+      <form id="lead-form" novalidate style="min-width:0;display:flex;flex-direction:column;gap:18px;border:1px solid #E5E5E5;background:#F2F2F2;padding:clamp(20px,4vw,32px)">
+        <label style="display:block"><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#767676;margin-bottom:8px">Ім'я</span><input type="text" name="name" required autocomplete="name" style="width:100%;padding:16px;border:1px solid #E5E5E5;background:#FFF;font-size:16px;border-radius:0" /></label>
+        <label style="display:block"><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#767676;margin-bottom:8px">Телефон або Telegram</span><input type="text" name="phone" required autocomplete="tel" style="width:100%;padding:16px;border:1px solid #E5E5E5;background:#FFF;font-size:16px;border-radius:0" /></label>
+        <label style="display:block"><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#767676;margin-bottom:8px">Коротко про бізнес (необов'язково)</span><textarea name="comment" rows="3" style="width:100%;padding:16px;border:1px solid #E5E5E5;background:#FFF;font-size:16px;border-radius:0;resize:vertical"></textarea></label>
+        <button type="submit" style="width:100%;background:#FFD700;color:#000;border:0;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:18px 24px;cursor:pointer;border-radius:0" style-hover="background:#000000;color:#FFD700">Залишити заявку</button>
+        <p id="form-status" role="status" aria-live="polite" style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.05em;min-height:1.4em"></p>
       </form>
     </div>
   </section>
-  </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <a href="#top" class="wordmark wordmark--footer" aria-label="CRMCUSTOMS">
-      <span class="wm-crm">CRM</span><span class="wm-customs">CUSTOMS</span>
-    </a>
-    <ul class="footer__contacts">
-      <li><a href="https://t.me/crmcustomsua" target="_blank" rel="noopener">Telegram · @crmcustomsua</a></li>
-      <li><a href="mailto:tm@crmcustoms.com">tm@crmcustoms.com</a></li>
-      <li><a href="tel:+380931198927">+38 (093) 119-89-27</a></li>
-      <li class="footer__legal">ФОП Ткаченко Максим Вікторович</li>
-    </ul>
-    <div class="footer__actions">
-      <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" class="btn btn--sm btn--outline">Написати в Telegram</a>
-      <a href="#form" class="btn btn--sm btn--yellow" data-scroll>Залишити заявку</a>
+  <footer style="padding:clamp(40px,7vw,64px) clamp(20px,5vw,64px) clamp(80px,14vw,64px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,4vw,40px);align-items:start">
+      <a href="#top" style="font-weight:800;font-size:clamp(22px,6vw,34px);letter-spacing:-0.02em"><span style="color:#FFD700;-webkit-text-stroke:2px #FFFFFF;paint-order:stroke fill">CRM</span><span>CUSTOMS</span></a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;line-height:2;color:#767676">
+        <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" style="display:block">Telegram · @crmcustomsua</a>
+        <a href="mailto:tm@crmcustoms.com" style="display:block">tm@crmcustoms.com</a>
+        <a href="tel:+380931198927" style="display:block">+38 (093) 119-89-27</a>
+        <div>ФОП Ткаченко Максим Вікторович</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" style="border:1px solid #000;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:14px 18px" style-hover="background:#000000;color:#FFFFFF">Написати в Telegram</a>
+        <a href="#form" style="background:#FFD700;color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:14px 18px" style-hover="background:#000000;color:#FFD700">Залишити заявку</a>
+      </div>
     </div>
   </footer>
 
-</div>
-
-  <!-- ================= STICKY MOBILE CTA ================= -->
-  <div class="sticky-cta" id="sticky-cta">
-    <a href="https://t.me/crmcustomsua" target="_blank" rel="noopener" class="btn btn--sm btn--outline">Написати в Telegram</a>
-    <a href="#form" class="btn btn--sm btn--yellow" data-scroll>Залишити заявку</a>
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#111111;border-top:1px solid #000">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#FFFFFF;line-height:1.5">4 900 ₴ <span style="color:#767676">замість 6 900 ₴</span></div>
+    <a href="#form" style="background:#FFD700;color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:12px 16px;white-space:nowrap">Заявка</a>
   </div>
 
-  <script src="./script.js"></script>
+</div>
+
+<script src="./script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* ============================================================
    CRMCUSTOMS — Старт за 3 дні · client logic
-   Vanilla JS, no dependencies (GitHub Pages friendly).
+   Vanilla JS, no dependencies (GitHub Pages / Netlify friendly).
    ============================================================ */
 (function () {
   "use strict";
@@ -9,7 +9,7 @@
     "https://crmcustomsua.planfix.ua/webhook/json/vgko-hwom-4ply-4umd";
 
   /* ---------- Smooth scroll for in-page anchors ---------- */
-  document.querySelectorAll('[data-scroll], a[href^="#"]').forEach(function (link) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
       var id = link.getAttribute("href");
       if (!id || id === "#" || id[0] !== "#") return;
@@ -20,10 +20,26 @@
     });
   });
 
+  /* ---------- Design hover states (style-hover="...") ---------- */
+  document.querySelectorAll("[style-hover]").forEach(function (el) {
+    var normal = el.getAttribute("style") || "";
+    var hover = el.getAttribute("style-hover");
+    el.addEventListener("mouseenter", function () {
+      el.style.cssText = normal + ";" + hover;
+    });
+    el.addEventListener("mouseleave", function () {
+      el.style.cssText = normal;
+    });
+  });
+
   /* ---------- Scroll progress bar ---------- */
   (function initScrollProgress() {
     var bar = document.createElement("div");
-    bar.className = "scroll-progress";
+    bar.setAttribute("data-crm-progress", "1");
+    bar.style.cssText =
+      "position:fixed;top:0;left:0;right:0;height:3px;background:#FFD700;" +
+      "transform:scaleX(0);transform-origin:0 50%;z-index:70;pointer-events:none;" +
+      "transition:transform 120ms cubic-bezier(0.2, 0, 0, 1)";
     document.body.appendChild(bar);
     function onScroll() {
       var max = document.documentElement.scrollHeight - window.innerHeight;
@@ -34,87 +50,6 @@
     onScroll();
   })();
 
-  /* ---------- Reveal on scroll ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-    );
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("is-in"); });
-  }
-
-  /* ---------- Animated counters ---------- */
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
-    var suffix = el.getAttribute("data-suffix") || "";
-    if (target === 0) { el.textContent = "0" + suffix; return; }
-    var dur = 900;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(eased * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var counters = document.querySelectorAll("[data-count]");
-  if ("IntersectionObserver" in window) {
-    var co = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
-            co.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    counters.forEach(function (el) { co.observe(el); });
-  } else {
-    counters.forEach(animateCount);
-  }
-
-  /* ---------- Sticky mobile CTA ---------- */
-  var stickyCta = document.getElementById("sticky-cta");
-  var hero = document.querySelector(".hero");
-  var formSection = document.getElementById("form");
-  if (stickyCta && hero && "IntersectionObserver" in window) {
-    var heroObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          // show when hero is scrolled past
-          stickyCta.classList.toggle("is-visible", !entry.isIntersecting);
-        });
-      },
-      { rootMargin: "-120px 0px 0px 0px" }
-    );
-    heroObserver.observe(hero);
-
-    // hide again while the form itself is on screen
-    var formObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) stickyCta.classList.remove("is-visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    formObserver.observe(formSection);
-  }
-
   /* ---------- Lead form → Planfix webhook ---------- */
   var form = document.getElementById("lead-form");
   var statusEl = document.getElementById("form-status");
@@ -122,7 +57,7 @@
   function setStatus(msg, kind) {
     if (!statusEl) return;
     statusEl.textContent = msg;
-    statusEl.className = "form__status" + (kind ? " is-" + kind : "");
+    statusEl.style.color = kind === "err" ? "#c53c2b" : kind === "ok" ? "#1a7a1a" : "#767676";
   }
 
   // Meta dedup id: shared between the browser Lead pixel event and the
@@ -227,24 +162,4 @@
       }
     });
   }
-
-  /* ---------- Scarcity: live slots + progress ---------- */
-  (function initScarcity() {
-    var slotsLeft = document.querySelector("#slots-left .scarcity__num");
-    var fill = document.querySelector("#scarcity-fill");
-    if (!slotsLeft) return;
-
-    var total = 5;
-    var taken = 2; // вже зайнято
-    var left = total - taken;
-
-    // рахуемо через localStorage, щоб лічильник "зайнятих" росте при повторних візитах
-    try {
-      var stored = parseInt(localStorage.getItem("crm_slots_taken") || "0", 10);
-      if (stored > taken) taken = Math.min(stored, total - 1);
-    } catch (e) { /* ignore */ }
-
-    slotsLeft.textContent = left;
-    if (fill) fill.style.width = (100 - (left / total) * 100) + "%";
-  })();
 })();
